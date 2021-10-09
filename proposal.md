@@ -19,11 +19,11 @@ Character- User will move around maze as character/sprite
 ```
 Given a webpage with a start game button
 When a user presses start game
-Then a maze is generated randomly from set parameters and a character appears on the start block
-When a user wants to move
-Then user utilizes WASD keys to control character
+Then a maze is generated randomly from set parameters and a character (retrieved from character API) appears on the start block
+When a user wants to move, user presses W(up), A(left), S(down), or D(down)
+Then the character will move according to the assigned direction
 When a user gets to end block of the maze
-Then the game is over and their time is saved
+Then a message displays (retrieved from giphy API) and the game is over and their time is saved as their score
 
 ```
 
