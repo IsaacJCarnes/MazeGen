@@ -139,25 +139,49 @@ function randomCellFromLine(top, bottom){
     }
 }
 
+function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, boolean
+    let dist = cellDistance(topLeft, bottomRight);
+    if(getCol(dist) <= 1 || getRow(dist) <= 1){
+        return;
+    } else if(getCol(dist) < 3 && getRow < 3){
+        return;
+    }
+
+    if(vertical == true){
+        let wallCol = Math.floor(Math.random() * (getCol(bottomRight) - 4)) + getCol(topLeft) + 2; //Chooses between index first col + 2 and last col -2
+        let side1 = numberToStringID(wallCol + " " + getRow(topLeft));
+        let side2 = numberToStringID(wallCol + " " + getRow(bottomRight));
+        fillCells(side1, side2); //Initial wall
+        cellToPath(randomCellFromLine(side1, side2)); //Window
+
+        let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
+        let firstBottomRight =  numberToStringID((getCol(side2) -1) + " " + getRow(side2));
+        addWallToArea(firstTopLeft, firstBottomRight, false);
+
+        let secondTopLeft = numberToStringID((getCol(side1) + 1) + " " + getRow(side1));
+        let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
+        addWallToArea(secondTopLeft, secondBottomRight, false);
+    } else {
+        let wallRow = Math.floor(Math.random() * (getRow(bottomRight) - 4)) + getRow(topLeft) + 2; //Chooses between index first col + 2 and last col -2
+        let side1 = numberToStringID(getCol(topLeft) + " " + wallRow);
+        let side2 = numberToStringID(getCol(bottomRight) + " " + wallRow);
+        fillCells(side1, side2); //Initial wall
+        cellToPath(randomCellFromLine(side1, side2)); //Window
+
+        let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
+        let firstBottomRight =  numberToStringID(getCol(side2) + " " + (getRow(side2) - 1));
+        addWallToArea(firstTopLeft, firstBottomRight, true);
+
+        let secondTopLeft = numberToStringID(getCol(side1) + " " + (getRow(side1) + 1));
+        let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
+        addWallToArea(secondTopLeft, secondBottomRight, true);
+    }
+    //Need a way to mathmatically get area on either side
+
+}
+
 populateGrid(false);
 
-const startBox = document.getElementById("00 10");
-const endBox = document.getElementById("18 10");
-
-//Need a way to mathmatically get area on either side
-let firstWallCol = Math.floor(Math.random() * (colNum - 4)) + 2; //Chooses between index 2 and rowNum-2
-let side1 = numberToStringID(firstWallCol + " " + 0);
-let side2 = numberToStringID(firstWallCol + " " + (rowNum-1));
-fillCells(side1, side2); //Initial wall
-cellToPath(randomCellFromLine(side1, side2)); //Window
-
-//pathToEnd(cellDistance(startBox.id, endBox.id), startBox.id);
-
-//For testing only
-startBox.style.background = "green";
-startBox.dataset.isWall = false;
-startBox.innerHTML = "start";
-
-endBox.style.background = "red";
-endBox.dataset.isWall = false;
-endBox.innerHTML = "end";
+let areaPoint1 = "00 00";
+let areaPoint2 = numberToStringID((colNum-1) + " " + (rowNum-1));
+addWallToArea(areaPoint1, areaPoint2, true);
