@@ -1,11 +1,11 @@
 const playContainer = document.getElementById("playContainer");
-const rowNum = 19; //based on 5% gridBox height and 95% playArea height
 const colNum = 19; //based on 5% gridBox width and 95% playArea width
+const rowNum = 19; //based on 5% gridBox height and 95% playArea height
 
 const wallColor = "black";
 const pathColor = "white";
 
-function getCol(positionData){ //Returns number data
+function getCol(positionData){ //Returns number data 
     return Number(positionData.split(' ')[0]);
 }
 
@@ -20,13 +20,13 @@ function cellDistance(cell1, cell2){ //Returns number distance
 function numberToStringID(numberID){ //Returns string id
     var split = numberID.split(' ', 2);
     var newId = '';
-    if(split[0] < 10){
+    if(split[0] < 10){ //Col
         newId = newId.concat('0' + split[0]);
     } else{
         newId = newId.concat(split[0]);
     }
     newId = newId.concat(' ');
-    if(split[1] < 0){
+    if(split[1] < 0){ //Row
         newId = newId.concat('-' + '0' + Math.abs(split[1]));
     } else if(split[1] < 10){
         newId = newId.concat('0' + split[1]);
@@ -49,8 +49,8 @@ function cellToWall(positionData){ //Adjusts the cell to be a path cell
 }
 
 function populateGrid(allWalls){ //Makes grid have all black cells
-    for(i = 0; i < rowNum; i++){
-        for(j = 0; j < colNum; j++){
+    for(i = 0; i < colNum; i++){
+        for(j = 0; j < rowNum; j++){
             var box = document.createElement("div");
             playContainer.appendChild(box);
             if(i < 10 && j < 10){
@@ -62,10 +62,11 @@ function populateGrid(allWalls){ //Makes grid have all black cells
             } else {
                 box.id = i + " " + j;
             }
-            if(allWalls ==  true){
+
+            if(allWalls ==  true){ //For maze carver function
                 box.style.background = wallColor; //Wall color
                 box.dataset.isWall = true;
-            } else {
+            } else { //For maze builder function
                 box.style.background = pathColor; //Wall color
                 box.dataset.isWall = false;
             }
@@ -104,22 +105,22 @@ function fillCells(startCell, finishCell){
         return;
     }
 
-    if(getCol(startCell) == getCol(finishCell)){
+    if(getCol(startCell) == getCol(finishCell)){ //Horizontal line
         for(i = getRow(startCell); i <= getRow(finishCell); i++){
-            cellToWall(numberToStringID(getCol(startCell) + " " + i));            
+            cellToWall(numberToStringID(getCol(startCell) + " " + i));
         }
-    } else if (getRow(startCell) == getRow(finishCell)){
+    } else if (getRow(startCell) == getRow(finishCell)){ //Vertical line
         for(i = getCol(startCell); i <= getCol(finishCell); i++){
             cellToWall(numberToStringID(i + " " + getRow(startCell)));
         }
     }
 }
 
-function randomCellFromArea(topLeft, bottomRight){
+function randomCellFromArea(topLeft, bottomRight){ //Picks a random cell between two points
     let distance = cellDistance(topLeft, bottomRight);
     console.log(distance);
-    if(getCol(distance) <= 2 || getRow(distance) <= 2){ //getCol is horizontal distance, getRow is vertical distance
-        console.log("exit");
+    if(getCol(distance) <= 2 && getRow(distance) <= 2){ //getCol is horizontal distance, getRow is vertical distance
+        console.log("area too small");
         return;
     }
 
@@ -128,14 +129,27 @@ function randomCellFromArea(topLeft, bottomRight){
     return numberToStringID(x + " " + y);
 }
 
+function randomCellFromLine(top, bottom){
+    if(getCol(top) == getCol(bottom)){
+        let y = Math.floor(Math.random() * Number((getRow(bottom) -1) - (getRow(top) + 1))) + (getRow(top) + 1);
+        return numberToStringID(getCol(top) + " " + y);
+    } else if(getRow(bottom) == getRow(bottom)){
+        let x = Math.floor(Math.random() * Number((getCol(bottom) -1) - (getCol(top) + 1))) + (getCol(top) + 1);
+        return numberToStringID(x + " " + getRow(top));
+    }
+}
+
 populateGrid(false);
 
 const startBox = document.getElementById("00 10");
 const endBox = document.getElementById("18 10");
 
-fillCells(startBox.id, endBox.id);
-let temp = randomCellFromArea("00 00", "10 10");
-document.getElementById(temp).style.background = "orange";
+//Need a way to mathmatically get area on either side
+let firstWallCol = Math.floor(Math.random() * (colNum - 4)) + 2; //Chooses between index 2 and rowNum-2
+let side1 = numberToStringID(firstWallCol + " " + 0);
+let side2 = numberToStringID(firstWallCol + " " + (rowNum-1));
+fillCells(side1, side2); //Initial wall
+cellToPath(randomCellFromLine(side1, side2)); //Window
 
 //pathToEnd(cellDistance(startBox.id, endBox.id), startBox.id);
 

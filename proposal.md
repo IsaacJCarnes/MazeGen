@@ -5,7 +5,7 @@ Maze Generator Game
 A game where a user has to navigate through a randomly generatored maze using 
 
 ## APIs (Third-party)
-Giphy- To be displayed when user completes mazw
+Giphy- To be displayed when user completes maze
 (https://developers.giphy.com/docs/api#quick-start-guide)
 
 Character- User will move around maze as character/sprite 
