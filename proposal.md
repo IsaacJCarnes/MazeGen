@@ -12,6 +12,7 @@ Character- User will move around maze as character/sprite
 (http://acnhapi.com/doc)
 
 ## Wireframe or Design for the website
+![Alt text](https://github.com/IsaacJCarnes/MazeGen/blob/main/assets/images/webScreenshot-rough.png "Website Screenshot")
 
 ## List of Tasks or Acceptance Criteria
 
