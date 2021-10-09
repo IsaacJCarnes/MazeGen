@@ -42,7 +42,7 @@ function cellToPath(positionData){ //Adjusts the cell to be a path cell
     tempCell.dataset.isWall = false;
 }
 
-function populateGrid(){ //Makes grid have all black cells
+function populateGrid(allWalls){ //Makes grid have all black cells
     for(i = 0; i < rowNum; i++){
         for(j = 0; j < colNum; j++){
             var box = document.createElement("div");
@@ -56,11 +56,16 @@ function populateGrid(){ //Makes grid have all black cells
             } else {
                 box.id = i + " " + j;
             }
-            box.style.background = wallColor; //Wall color
-            box.dataset.isWall = true;
+            if(allWalls ==  true){
+                box.style.background = wallColor; //Wall color
+                box.dataset.isWall = true;
+            } else {
+                box.style.background = pathColor; //Wall color
+                box.dataset.isWall = false;
+            }
 
             box.style.color = "white";
-            box.style.width = "5.25%";
+            box.style.width = "5.25%"; //playContainer.clientWidth/rowNum
             box.style.height = "5.25%";
             box.style.margin = "0px"
         }
@@ -87,10 +92,10 @@ function pathToEnd(direction, startPoint){
     }
 }
 
-populateGrid();
+populateGrid(true);
 
 const startBox = document.getElementById("00 10");
-const endBox = document.getElementById("18 05");
+const endBox = document.getElementById("18 12");
 
 pathToEnd(cellDistance(startBox, endBox), startBox.id);
 
