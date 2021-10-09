@@ -14,6 +14,8 @@ Character- User will move around maze as character/sprite
 ## Wireframe or Design for the website
 
 ## List of Tasks or Acceptance Criteria
+
+```
 Given a webpage with a start game button
 When a user presses start game
 Then a maze is generated randomly from set parameters and a character appears on the start block
@@ -21,6 +23,8 @@ When a user wants to move
 Then user utilizes WASD keys to control character
 When a user gets to end block of the maze
 Then the game is over and their time is saved
+
+```
 
 ## First Task for each member
 Adriana: Create html file for landing page that will include a button to start the game which will take user to html file with maze, link js to html
