@@ -79,26 +79,6 @@ function populateGrid(allWalls){ //Makes grid have all black cells
     }
 }
 
-function pathToEnd(direction, startPoint){
-    let colDirection = getCol(direction);
-    let rowDirection = getRow(direction);
-    //makes a random number between 0 and (colDirection + rowDirection - 1)
-    let randNum = Math.floor(Math.random() * (colDirection + Math.abs(rowDirection)));
-    //console.log(colDirection + " " + rowDirection + " " + (colDirection + Math.abs(rowDirection)) + " " + randNum);
-    if(randNum < colDirection){
-        let nextCell = numberToStringID(getCol(startPoint) + 1 + ' ' + getRow(startPoint));
-        colDirection--;
-        cellToPath(nextCell);
-        pathToEnd(colDirection + " " + rowDirection, nextCell);
-    } else if(randNum < (colDirection + Math.abs(rowDirection))){
-        let nextCell = numberToStringID(getCol(startPoint) + " " + (getRow(startPoint) + (rowDirection / Math.abs(rowDirection))));
-        rowDirection = rowDirection - (rowDirection / Math.abs(rowDirection));
-        cellToPath(nextCell);
-        let temp = numberToStringID(colDirection + " " + rowDirection);
-        pathToEnd(temp, nextCell);
-    }
-}
-
 function fillCells(startCell, finishCell){
     //Makes sure we are only filling a straight line
     if((getCol(startCell) != getCol(finishCell)) && (getRow(startCell) != getRow(finishCell))){
