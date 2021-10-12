@@ -192,8 +192,46 @@ function addWallToArea(topLeft, bottomRight, vertical, lastWindow){ //string id,
     }
 }
 
-populateGrid(false);
+populateGrid(true);
 
-let areaPoint1 = "00 00";
+/*let areaPoint1 = "00 00";
 let areaPoint2 = numberToStringID((colNum-1) + " " + (rowNum-1));
-addWallToArea(areaPoint1, areaPoint2, true);
+addWallToArea(areaPoint1, areaPoint2, true);*/
+
+/////////////////////////////////////Presentation Mode
+function mazeFromArray(mazeArray){
+    for(i = 0; i < mazeArray.length; i++){
+        for(j = 0; j < mazeArray[i].length; j++){
+            if(fixedMaze[i][j] == 'x'){
+                cellToWall(numberToStringID(j + " " + i));
+            } else if(fixedMaze[i][j] == 'o'){
+                cellToPath(numberToStringID(j + " " + i));
+            }
+            console.log(i + " " + j);
+        } 
+    }
+}
+
+var fixedMaze = [
+    ['o', 'o', 'x', 'o', 'o','x', 'o', 'x', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'x', 'x', 'o'],
+    ['x', 'o', 'x', 'o', 'x','x', 'o', 'x', 'o', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'x', 'o','x', 'o', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','o', 'o', 'o', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x', 'x','x', 'x', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'x', 'x','x', 'o', 'x', 'x', 'o','o', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'o', 'x', 'x','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'x','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'o', 'x', 'o'],
+    ['x', 'x', 'o', 'x', 'x','o', 'x', 'x', 'x', 'o','x', 'x', 'o', 'x', 'o','x', 'x', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'x', 'x', 'o','x', 'o', 'o', 'x', 'o','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'x'],
+    ['o', 'x', 'o', 'x', 'x','x', 'o', 'x', 'o', 'x','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o'],
+    ['o', 'x', 'x', 'x', 'o','o', 'o', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'x', 'x', 'x','x', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'x', 'o', 'x', 'x','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'x', 'x', 'o','o', 'x', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o']
+];
+
+mazeFromArray(fixedMaze);
