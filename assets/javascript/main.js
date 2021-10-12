@@ -14,7 +14,7 @@ function getRow(positionData){ //Returns number data
 }
 
 function cellDistance(cell1, cell2){ //Returns number distance
-    return (getCol(cell2.id) - getCol(cell1.id)) + " " + (getRow(cell2.id) - getRow(cell1.id));
+    return (getCol(cell2) - getCol(cell1)) + " " + (getRow(cell2) - getRow(cell1));
 }
 
 function numberToStringID(numberID){ //Returns string id
@@ -42,6 +42,12 @@ function cellToPath(positionData){ //Adjusts the cell to be a path cell
     tempCell.dataset.isWall = false;
 }
 
+function cellToWall(positionData){ //Adjusts the cell to be a path cell
+    let tempCell = document.getElementById(positionData);
+    tempCell.style.background = wallColor;
+    tempCell.dataset.isWall = true;
+}
+
 function populateGrid(allWalls){ //Makes grid have all black cells
     for(i = 0; i < rowNum; i++){
         for(j = 0; j < colNum; j++){
@@ -65,7 +71,7 @@ function populateGrid(allWalls){ //Makes grid have all black cells
             }
 
             box.style.color = "white";
-            box.style.width = "5.25%"; //playContainer.clientWidth/rowNum
+            box.style.width = playContainer.clientWidth/rowNum; //5.25%
             box.style.height = "5.25%";
             box.style.margin = "0px"
         }
@@ -92,12 +98,46 @@ function pathToEnd(direction, startPoint){
     }
 }
 
-populateGrid(true);
+function fillCells(startCell, finishCell){
+    //Makes sure we are only filling a straight line
+    if((getCol(startCell) != getCol(finishCell)) && (getRow(startCell) != getRow(finishCell))){
+        return;
+    }
+
+    if(getCol(startCell) == getCol(finishCell)){
+        for(i = getRow(startCell); i <= getRow(finishCell); i++){
+            cellToWall(numberToStringID(getCol(startCell) + " " + i));            
+        }
+    } else if (getRow(startCell) == getRow(finishCell)){
+        for(i = getCol(startCell); i <= getCol(finishCell); i++){
+            cellToWall(numberToStringID(i + " " + getRow(startCell)));
+        }
+    }
+}
+
+function randomCellFromArea(topLeft, bottomRight){
+    let distance = cellDistance(topLeft, bottomRight);
+    console.log(distance);
+    if(getCol(distance) <= 2 || getRow(distance) <= 2){ //getCol is horizontal distance, getRow is vertical distance
+        console.log("exit");
+        return;
+    }
+
+    let x = Math.floor(Math.random() * Number((getCol(bottomRight) -1) - (getCol(topLeft) + 1))) + (getCol(topLeft) + 1);
+    let y = Math.floor(Math.random() * Number((getRow(bottomRight) -1) - (getRow(topLeft) + 1))) + (getRow(topLeft) + 1);
+    return numberToStringID(x + " " + y);
+}
+
+populateGrid(false);
 
 const startBox = document.getElementById("00 10");
-const endBox = document.getElementById("18 12");
+const endBox = document.getElementById("18 10");
 
-pathToEnd(cellDistance(startBox, endBox), startBox.id);
+fillCells(startBox.id, endBox.id);
+let temp = randomCellFromArea("00 00", "10 10");
+document.getElementById(temp).style.background = "orange";
+
+//pathToEnd(cellDistance(startBox.id, endBox.id), startBox.id);
 
 //For testing only
 startBox.style.background = "green";
