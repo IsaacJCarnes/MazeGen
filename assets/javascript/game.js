@@ -135,7 +135,7 @@ function randomCellFromLine(top, bottom, withoutBounds){
     }
 }
 
-function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, boolean
+function addWallToArea(topLeft, bottomRight, vertical, lastWindow){ //string id, string id, boolean
     let dist = cellDistance(topLeft, bottomRight);
     if(getCol(dist) <= 1 || getRow(dist) <= 1){
         return;
@@ -145,37 +145,93 @@ function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, 
 
     if(vertical == true){
         let wallCol = Math.floor(Math.random() * (getCol(bottomRight) - 4)) + getCol(topLeft) + 2; //Chooses between index first col + 2 and last col -2
+        let time = 0;
+        while(lastWindow != null && wallCol == getCol(lastWindow)){
+            wallCol = Math.floor(Math.random() * (getCol(bottomRight) - 4)) + getCol(topLeft) + 2;
+            time++;
+            if(time > 5){
+                break;
+            }
+        }
         let side1 = numberToStringID(wallCol + " " + getRow(topLeft));
         let side2 = numberToStringID(wallCol + " " + getRow(bottomRight));
         fillCells(side1, side2); //Initial wall
-        cellToPath(randomCellFromLine(side1, side2, false)); //Window
+        let windowCell = randomCellFromLine(side1, side2, false);
+        cellToPath(windowCell); //Window
 
         let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
         let firstBottomRight =  numberToStringID((getCol(side2) -1) + " " + getRow(side2));
-        addWallToArea(firstTopLeft, firstBottomRight, false);
+        addWallToArea(firstTopLeft, firstBottomRight, false, windowCell);
 
         let secondTopLeft = numberToStringID((getCol(side1) + 1) + " " + getRow(side1));
         let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
-        addWallToArea(secondTopLeft, secondBottomRight, false);
+        addWallToArea(secondTopLeft, secondBottomRight, false, windowCell);
     } else {
         let wallRow = Math.floor(Math.random() * (getRow(bottomRight) - 4)) + getRow(topLeft) + 2; //Chooses between index first col + 2 and last col -2
+        let time = 0;
+        while(lastWindow != null && wallRow == getRow(lastWindow)){
+            wallRow = Math.floor(Math.random() * (getRow(bottomRight) - 4)) + getRow(topLeft) + 2; 
+            time++;
+            if(time > 5){
+                break;
+            }
+        }
         let side1 = numberToStringID(getCol(topLeft) + " " + wallRow);
         let side2 = numberToStringID(getCol(bottomRight) + " " + wallRow);
         fillCells(side1, side2); //Initial wall
-        cellToPath(randomCellFromLine(side1, side2, false)); //Window
+        let windowCell = randomCellFromLine(side1, side2, false);
+        cellToPath(windowCell); //Window
 
         let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
         let firstBottomRight =  numberToStringID(getCol(side2) + " " + (getRow(side2) - 1));
-        addWallToArea(firstTopLeft, firstBottomRight, true);
+        addWallToArea(firstTopLeft, firstBottomRight, true, windowCell);
 
         let secondTopLeft = numberToStringID(getCol(side1) + " " + (getRow(side1) + 1));
         let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
-        addWallToArea(secondTopLeft, secondBottomRight, true);
+        addWallToArea(secondTopLeft, secondBottomRight, true, windowCell);
     }
 }
 
-populateGrid(false);
+populateGrid(true);
 
-let areaPoint1 = "00 00";
+/*let areaPoint1 = "00 00";
 let areaPoint2 = numberToStringID((colNum-1) + " " + (rowNum-1));
-addWallToArea(areaPoint1, areaPoint2, true);
+addWallToArea(areaPoint1, areaPoint2, true);*/
+
+/////////////////////////////////////Presentation Mode
+function mazeFromArray(mazeArray){
+    for(i = 0; i < mazeArray.length; i++){
+        for(j = 0; j < mazeArray[i].length; j++){
+            if(fixedMaze[i][j] == 'x'){
+                cellToWall(numberToStringID(j + " " + i));
+            } else if(fixedMaze[i][j] == 'o'){
+                cellToPath(numberToStringID(j + " " + i));
+            }
+            console.log(i + " " + j);
+        } 
+    }
+}
+
+var fixedMaze = [
+    ['o', 'o', 'x', 'o', 'o','x', 'o', 'x', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'x', 'x', 'o'],
+    ['x', 'o', 'x', 'o', 'x','x', 'o', 'x', 'o', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'x', 'o','x', 'o', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','o', 'o', 'o', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x', 'x','x', 'x', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'x', 'x','x', 'o', 'x', 'x', 'o','o', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'o', 'x', 'x','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'x','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'o', 'x', 'o'],
+    ['x', 'x', 'o', 'x', 'x','o', 'x', 'x', 'x', 'o','x', 'x', 'o', 'x', 'o','x', 'x', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'x', 'x', 'o','x', 'o', 'o', 'x', 'o','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'x'],
+    ['o', 'x', 'o', 'x', 'x','x', 'o', 'x', 'o', 'x','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o'],
+    ['o', 'x', 'x', 'x', 'o','o', 'o', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'x', 'x', 'x','x', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'x', 'o', 'x', 'x','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','x', 'x', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'o', 'o','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'x', 'x', 'o','o', 'x', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o']
+];
+
+mazeFromArray(fixedMaze);
