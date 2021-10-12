@@ -11,3 +11,7 @@
     border: 1px solid whitesmoke;
 }
 
+.bear-icon {
+    max-width: 35px;
+    max-height: auto;
+}
