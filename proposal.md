@@ -11,6 +11,9 @@ Giphy- To be displayed when user completes maze
 Character- User will move around maze as character/sprite 
 (http://acnhapi.com/doc)
 
+another character- villain character that could be placed somewhere
+(https://psychonauts-api.herokuapp.com/characters?name=razputin)
+
 ## Wireframe or Design for the website
 ![Alt text](https://github.com/IsaacJCarnes/MazeGen/blob/main/assets/images/webScreenshot-rough.png "Website Screenshot")
 
