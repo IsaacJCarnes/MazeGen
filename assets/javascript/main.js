@@ -5,6 +5,9 @@ const rowNum = 19; //based on 5% gridBox height and 95% playArea height
 const wallColor = "black";
 const pathColor = "white";
 
+playContainer.dataset.cols = colNum;
+playContainer.dataset.rows = rowNum;
+
 function getCol(positionData){ //Returns number data 
     return Number(positionData.split(' ')[0]);
 }
@@ -43,6 +46,9 @@ function cellToPath(positionData){ //Adjusts the cell to be a path cell
 }
 
 function cellToWall(positionData){ //Adjusts the cell to be a path cell
+    if(document.getElementById(positionData) === null){
+        console.log("broken " + positionData);
+    }
     let tempCell = document.getElementById(positionData);
     tempCell.style.background = wallColor;
     tempCell.dataset.isWall = true;
@@ -109,13 +115,23 @@ function randomCellFromArea(topLeft, bottomRight){ //Picks a random cell between
     return numberToStringID(x + " " + y);
 }
 
-function randomCellFromLine(top, bottom){
-    if(getCol(top) == getCol(bottom)){
-        let y = Math.floor(Math.random() * Number((getRow(bottom) -1) - (getRow(top) + 1))) + (getRow(top) + 1);
-        return numberToStringID(getCol(top) + " " + y);
-    } else if(getRow(bottom) == getRow(bottom)){
-        let x = Math.floor(Math.random() * Number((getCol(bottom) -1) - (getCol(top) + 1))) + (getCol(top) + 1);
-        return numberToStringID(x + " " + getRow(top));
+function randomCellFromLine(top, bottom, withoutBounds){
+    if(withoutBounds == true){ //Without bounds does not allows the first or last element to be selected
+        if(getCol(top) == getCol(bottom)){
+            let y = Math.floor(Math.random() * Number((getRow(bottom) -1) - (getRow(top) + 1))) + (getRow(top) + 1);
+            return numberToStringID(getCol(top) + " " + y);
+        } else if(getRow(bottom) == getRow(bottom)){
+            let x = Math.floor(Math.random() * Number((getCol(bottom) -1) - (getCol(top) + 1))) + (getCol(top) + 1);
+            return numberToStringID(x + " " + getRow(top));
+        }
+    } else {
+        if(getCol(top) == getCol(bottom)){
+            let y = Math.floor(Math.random() * Number(getRow(bottom) - getRow(top))) + getRow(top);
+            return numberToStringID(getCol(top) + " " + y);
+        } else if(getRow(bottom) == getRow(bottom)){
+            let x = Math.floor(Math.random() * Number(getCol(bottom) - getCol(top))) + getCol(top);
+            return numberToStringID(x + " " + getRow(top));
+        }
     }
 }
 
@@ -132,7 +148,7 @@ function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, 
         let side1 = numberToStringID(wallCol + " " + getRow(topLeft));
         let side2 = numberToStringID(wallCol + " " + getRow(bottomRight));
         fillCells(side1, side2); //Initial wall
-        cellToPath(randomCellFromLine(side1, side2)); //Window
+        cellToPath(randomCellFromLine(side1, side2, false)); //Window
 
         let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
         let firstBottomRight =  numberToStringID((getCol(side2) -1) + " " + getRow(side2));
@@ -146,7 +162,7 @@ function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, 
         let side1 = numberToStringID(getCol(topLeft) + " " + wallRow);
         let side2 = numberToStringID(getCol(bottomRight) + " " + wallRow);
         fillCells(side1, side2); //Initial wall
-        cellToPath(randomCellFromLine(side1, side2)); //Window
+        cellToPath(randomCellFromLine(side1, side2, false)); //Window
 
         let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
         let firstBottomRight =  numberToStringID(getCol(side2) + " " + (getRow(side2) - 1));
@@ -156,8 +172,6 @@ function addWallToArea(topLeft, bottomRight, vertical){ //string id, string id, 
         let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
         addWallToArea(secondTopLeft, secondBottomRight, true);
     }
-    //Need a way to mathmatically get area on either side
-
 }
 
 populateGrid(false);
