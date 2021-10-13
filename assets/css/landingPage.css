@@ -7,7 +7,7 @@ header {
 }
 
 h2 {
-color: darkgreen
+  color: darkgreen;
 }
 
 p {
@@ -19,7 +19,6 @@ button {
   font-size: 20px;
   text-align: center;
 }
-
 
 .modal {
   display: none;
@@ -49,17 +48,4 @@ nav {
   justify-content: space-around;
   margin: 10px;
   background-color: green;
-}
-
-#playContainer{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: absolute;
-  left:2.5%;
-  top: 2.5%;
-  width: 95%;
-  height: 95%;
-  background: black;
-  border: 1px solid whitesmoke;
 }
