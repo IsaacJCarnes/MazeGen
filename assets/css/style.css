@@ -11,3 +11,19 @@
     border: 1px solid whitesmoke;
 }
 
+header {
+    padding: 20px;
+    text-align: center;
+    background: darkgreen;
+    color: black;
+    font-size: 20px;
+}
+
+h2 {
+color: darkgreen
+}
+
+p {
+    font-size: 20px;
+}
+
