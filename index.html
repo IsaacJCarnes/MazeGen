@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets\css\style.css"/>
-    <script src="assets\javascript\landingPage.js" defer> </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets\css\landingPage.css" />
+    <script src="assets\javascript\landingPage.js" defer></script>
     <title>MazeRunner</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>MazeRunner</header>
+    <nav>
+      <button id="modal-button">Instructions</button>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
+            As a player your goal is to complete as many mazes as possible in
+            the given time limit.
+          </p>
+          <p>This game uses WASD key controls meaning to move:</p>
+          <ul>
+          <li>Press the <strong>W</strong> key to move up</li>
+          <li>Press the <strong>A</strong> key to move left</li>
+          <li>Press the <strong>S</strong> key to move down</li>
+          <li>Press the <strong>D</strong> key to move right</li>
+        </ul>
+        </div>
+      </div>
+
+      <button id="highscores">Highscores</h1>
+    </nav>
+
     <button id="start-button">Start!</button>
     <!--  -->
-</body>
+  </body>
 </html>
