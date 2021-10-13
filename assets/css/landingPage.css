@@ -1,11 +1,11 @@
-header {
+/* header {
     text-align: center;
     background-image: linear-gradient(to right, red, black);
     color: white;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 15px;
-}
+} */
 
 .modal {
   display: none;
@@ -36,6 +36,38 @@ nav {
   margin: 10px;
   background-color: green;
 }
-button{
-  min-height: 25px;
+
+#playContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  left:2.5%;
+  top: 2.5%;
+  width: 95%;
+  height: 95%;
+  background: black;
+  border: 1px solid whitesmoke;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: darkgreen;
+  color: black;
+  font-size: 20px;
+}
+
+h2 {
+color: darkgreen
+}
+
+p {
+  font-size: 20px;
+}
+
+button {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
 }
