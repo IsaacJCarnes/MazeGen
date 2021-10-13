@@ -212,7 +212,15 @@ function mazeFromArray(mazeArray){
     }
 }
 
-var fixedMaze = [
+function randomMaze(){
+    if(mazes.length > 0){
+        return null;
+    } else {
+        mazeFromArray(Math.floor(Math.random() * mazes.length));
+    }
+}
+
+var fixedMaze1 = [
     ['o', 'o', 'x', 'o', 'o','x', 'o', 'x', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'x', 'x', 'o'],
     ['x', 'o', 'x', 'o', 'x','x', 'o', 'x', 'o', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
     ['o', 'o', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
@@ -234,4 +242,6 @@ var fixedMaze = [
     ['o', 'o', 'x', 'x', 'o','o', 'x', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o']
 ];
 
-mazeFromArray(fixedMaze);
+var mazes = [fixedMaze1];
+
+randomMaze();
