@@ -27,3 +27,12 @@ startBtn.addEventListener("click", function () {
     document.location = "mazePage.html"
     const playContainer = ["#playContainer"]
 })
+
+// var giphyURL = "api.giphy.com/v1/gifs/{gif_id}"
+// fetch(giphyURL)
+// .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data)
+//   })
