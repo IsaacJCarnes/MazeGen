@@ -11,7 +11,25 @@
     border: 1px solid whitesmoke;
 }
 
-.bear-icon {
-    max-width: 35px;
-    max-height: auto;
+header {
+    padding: 20px;
+    text-align: center;
+    background: darkgreen;
+    color: black;
+    font-size: 20px;
 }
+
+h2 {
+color: darkgreen
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
