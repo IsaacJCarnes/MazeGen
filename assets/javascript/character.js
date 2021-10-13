@@ -1,7 +1,7 @@
 // console.log("hello world");
 
 var blocks = document.querySelectorAll("div");
-var startPoint = document.getElementById("07 04");
+var startPoint = document.getElementById("00 00");
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -11,23 +11,27 @@ function callCharacter() {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data)
-      // console.log(data.bea02.icon_uri);
+      console.log(data);
       bearIcon = data.bea02.icon_uri;
-      // console.log(data.bea02.icon_uri)
-      // createBearIcon(bearIcon);
+      tigerIcon = data.tig04.icon_uri;
+      wolfIcon = data.wol04.icon_uri;
+      frogIcon = data.flg03.icon_uri;
+      goatIcon = data.goa02.icon_uri;
+
+      icon = [bearIcon, tigerIcon, wolfIcon, frogIcon, goatIcon];
+      console.log(icon);
     });
 }
 callCharacter();
 
 // function createBearIcon(bearIcon) {
-  var iconImage = document.createElement("img");
-  // iconImage.setAttribute("src", bearIcon);
-  iconImage.setAttribute("src", "https://acnhapi.com/v1/icons/villagers/10");
-  iconImage.setAttribute("alt", "bear icon");
-  iconImage.setAttribute("id", "userIcon");
-  iconImage.setAttribute("class", "bear-icon");
-  startPoint.appendChild(iconImage);
+var iconImage = document.createElement("img");
+// iconImage.setAttribute("src", bearIcon);
+iconImage.setAttribute("src", "https://acnhapi.com/v1/icons/villagers/10");
+iconImage.setAttribute("alt", "bear icon");
+iconImage.setAttribute("id", "userIcon");
+iconImage.setAttribute("class", "bear-icon");
+startPoint.appendChild(iconImage);
 // }
 
 function moveRight() {
@@ -38,37 +42,38 @@ function moveRight() {
       switch (key) {
         case "d":
           console.log("Move right");
-          var cellID = iconImage.parentNode.id
-          console.log(cellID);
+          var cellID = iconImage.parentNode.id;
+          // console.log(cellID);
           var cellArray = cellID.split(" ");
-          console.log(cellArray);
-          var firstIndex = parseInt(cellArray[0])
-          console.log(firstIndex)
-          var movedToCell = firstIndex + 1
-          console.log(movedToCell)
-          var backToString = JSON.stringify(movedToCell)
-          console.log(backToString)
-          var revertedString = "0"
-          console.log(backToString.length)
-          var completedID = ""
-          if(backToString.length === 1){
-            completedID = revertedString + backToString
+          // console.log(cellArray);
+          var firstIndex = parseInt(cellArray[0]);
+          // console.log(firstIndex);
+          var movedToCell = firstIndex + 1;
+          // console.log(movedToCell);
+          var backToString = JSON.stringify(movedToCell);
+          // console.log(backToString);
+          var revertedString = "0";
+          // console.log(backToString.length);
+          var completedID = "";
+          if (backToString.length === 1) {
+            completedID = revertedString + backToString;
           } else if (backToString.length === 2) {
-            completedID = backToString
+            completedID = backToString;
           }
-          console.log(completedID)
-          cellArray[0]= completedID
-          console.log(cellArray)
-          console.log(completedID)
-          var newLocation = cellArray.join(" ")
-          console.log(newLocation)
+          // console.log(completedID);
+          cellArray[0] = completedID;
+          // console.log(cellArray);
+          // console.log(completedID);
+          var newLocation = cellArray.join(" ");
+          // console.log(newLocation);
+          
           // console.log(document.getElementById(`${newLocation}`))
           // // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
           // document.getElementById(`${newLocation}`).appendChild(iconImage)
           // if (document.getElementById(`${newLocation}`).getAttribute("data-is-wall") === true) {
           //   return;
           // } else {
-            document.getElementById(`${newLocation}`).appendChild(iconImage)
+          document.getElementById(`${newLocation}`).appendChild(iconImage);
           // }
           break;
       }
@@ -84,24 +89,24 @@ function moveUp() {
       switch (key) {
         case "w":
           console.log("Move up");
-          var cellID = iconImage.parentNode.id
+          var cellID = iconImage.parentNode.id;
           var cellArray = cellID.split(" ");
-          var secondIndex = parseInt(cellArray[1])
-          var movedToCell = secondIndex - 1
-          var backToString = JSON.stringify(movedToCell)
-          var revertedString = "0"
-          var completedID = ""
-          if(backToString.length === 1){
-            completedID = revertedString + backToString
+          var secondIndex = parseInt(cellArray[1]);
+          var movedToCell = secondIndex - 1;
+          var backToString = JSON.stringify(movedToCell);
+          var revertedString = "0";
+          var completedID = "";
+          if (backToString.length === 1) {
+            completedID = revertedString + backToString;
           } else if (backToString.length === 2) {
-            completedID = backToString
+            completedID = backToString;
           }
-          cellArray[1]= completedID
-          var newLocation = cellArray.join(" ")
-          console.log(newLocation)
+          cellArray[1] = completedID;
+          var newLocation = cellArray.join(" ");
+          console.log(newLocation);
           // console.log(document.getElementById(`${newLocation}`))
           // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage)
+          document.getElementById(`${newLocation}`).appendChild(iconImage);
           break;
       }
     }
@@ -116,23 +121,23 @@ function moveDown() {
       switch (key) {
         case "s":
           console.log("Move down");
-          var cellID = iconImage.parentNode.id
+          var cellID = iconImage.parentNode.id;
           var cellArray = cellID.split(" ");
-          var secondIndex = parseInt(cellArray[1])
-          var movedToCell = secondIndex + 1
-          var backToString = JSON.stringify(movedToCell)
-          var revertedString = "0"
-          var completedID = ""
-          if(backToString.length === 1){
-            completedID = revertedString + backToString
+          var secondIndex = parseInt(cellArray[1]);
+          var movedToCell = secondIndex + 1;
+          var backToString = JSON.stringify(movedToCell);
+          var revertedString = "0";
+          var completedID = "";
+          if (backToString.length === 1) {
+            completedID = revertedString + backToString;
           } else if (backToString.length === 2) {
-            completedID = backToString
+            completedID = backToString;
           }
-          cellArray[1]= completedID
-          var newLocation = cellArray.join(" ")
+          cellArray[1] = completedID;
+          var newLocation = cellArray.join(" ");
           // console.log(document.getElementById(`${newLocation}`))
           // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage)
+          document.getElementById(`${newLocation}`).appendChild(iconImage);
           break;
       }
     }
@@ -147,23 +152,23 @@ function moveLeft() {
       switch (key) {
         case "a":
           console.log("Move left");
-          var cellID = iconImage.parentNode.id
+          var cellID = iconImage.parentNode.id;
           var cellArray = cellID.split(" ");
-          var firstIndex = parseInt(cellArray[0])
-          var movedToCell = firstIndex - 1
-          var backToString = JSON.stringify(movedToCell)
-          var revertedString = "0"
-          var completedID = ""
-          if(backToString.length === 1){
-            completedID = revertedString + backToString
+          var firstIndex = parseInt(cellArray[0]);
+          var movedToCell = firstIndex - 1;
+          var backToString = JSON.stringify(movedToCell);
+          var revertedString = "0";
+          var completedID = "";
+          if (backToString.length === 1) {
+            completedID = revertedString + backToString;
           } else if (backToString.length === 2) {
-            completedID = backToString
+            completedID = backToString;
           }
-          cellArray[0]= completedID
-          var newLocation = cellArray.join(" ")
+          cellArray[0] = completedID;
+          var newLocation = cellArray.join(" ");
           // console.log(document.getElementById(`${newLocation}`))
           // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage)
+          document.getElementById(`${newLocation}`).appendChild(iconImage);
           break;
       }
     }
@@ -193,10 +198,10 @@ function moveLeft() {
 // }
 
 // console.log(blocks)
-for (var i = 0; i < 19; i++) {
-  var blockData = blocks[i].getAttribute("data-is-wall");
-  console.log(blockData);
-}
+// for (var i = 0; i < 19; i++) {
+//   var blockData = blocks[i].getAttribute("data-is-wall");
+//   console.log(blockData);
+// }
 
 // function startPlacement(){
 // for(var i = 0; i < 2; i++){
