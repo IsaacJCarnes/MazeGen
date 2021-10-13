@@ -1,0 +1,17 @@
+#playContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 2.5%;
+    top: 2.5%;
+    width: 95%;
+    height: 95%;
+    background: black;
+    border: 1px solid whitesmoke;
+  }
+  
+  .bear-icon {
+    max-width: 35px;
+    max-height: auto;
+  }
