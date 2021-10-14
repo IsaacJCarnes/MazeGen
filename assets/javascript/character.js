@@ -176,6 +176,7 @@ function downEventHandler(event) {
     rowPos ++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
       console.log("you won");
+      // add function call to switch to another maze
     }
   }
 }
@@ -201,6 +202,7 @@ function rightEventHandler(event) {
     colPos ++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
       console.log("you won");
+      // add function call to switch to another maze
     }
   }
 }
