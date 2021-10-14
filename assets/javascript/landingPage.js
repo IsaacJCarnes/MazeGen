@@ -29,31 +29,6 @@ startBtn.addEventListener("click", function () {
     const playContainer = ["#playContainer"]
 })
 
-// var giphyURL = "api.giphy.com/v1/gifs/Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc/{ecf05e476vqxvb7rpq4mkbel0b2nu5s97gyf9z2o0ueki1g4}"
-// fetch(giphyURL)
-// .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//   })
-
-// var giphyURL = "api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
-// fetch(giphyURL)
-// .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//   })
-
-  //api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc
-  // http:api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc
-
-var  maze = document.createElement("")
-
-
-
 var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
 fetch(giphyURL)
 .then(function (response) {
@@ -62,4 +37,3 @@ fetch(giphyURL)
   .then(function (data) {
     console.log(data.data[1].images.original.url)
   })
-
