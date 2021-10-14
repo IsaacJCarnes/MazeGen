@@ -177,9 +177,12 @@ function downEventHandler(event) {
     rowPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
       console.log("you won");
-      randomMaze();
-      callCharacter();
-      placeCharacter();
+      setTimeout(function() { randomMaze(); }, 500);
+      setTimeout(function() { callCharacter(); }, 500);
+      setTimeout(function() { placeCharacter(); }, 500);
+      // randomMaze();
+      // callCharacter();
+      // placeCharacter();
     }
   }
 }
@@ -205,9 +208,9 @@ function rightEventHandler(event) {
     colPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
       console.log("you won");
-      randomMaze();
-      callCharacter();
-      placeCharacter();
+      setTimeout(function() { randomMaze(); }, 500);
+      setTimeout(function() { callCharacter(); }, 500);
+      setTimeout(function() { placeCharacter(); }, 500);
     }
   }
 }
