@@ -30,9 +30,8 @@ callCharacter();
 var iconImage = document.createElement("img");
 iconImage.setAttribute("alt", "bear icon");
 iconImage.setAttribute("id", "userIcon");
-iconImage.setAttribute("class", "bear-icon");
-// iconImage.setAttribute(
-//   "src", "https://acnhapi.com/v1/icons/villagers/158" ); placeholder image, use generic image instead animal
+iconImage.setAttribute("class", "character-icon");
+iconImage.setAttribute("src", "assets/images/loading-circle.png" ); 
 startPoint.appendChild(iconImage);
 
 function moveCharacterLeft() {
@@ -145,7 +144,7 @@ function upEventHandler(event) {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
@@ -168,7 +167,7 @@ function downEventHandler(event) {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
@@ -194,7 +193,7 @@ function rightEventHandler(event) {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
@@ -220,7 +219,7 @@ function leftEventHandler(event) {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
@@ -250,3 +249,8 @@ document.addEventListener("keydown", function (event) {
     console.log(colPos + " " + rowPos)
   }
 });
+
+function characterHitWall () {
+  iconImage.setAttribute("id", "bounce-back");
+}
+// have to make sure it only temporarily sets ID then goes back to normal
