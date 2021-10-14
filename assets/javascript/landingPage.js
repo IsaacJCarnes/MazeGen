@@ -1,7 +1,7 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("modal-button");
 var span = document.getElementsByClassName("close")[0];
-var maze = document.getElementsByClassName("image")
+var maze = document.getElementsByClassName("")
 
 // When the user clicks the button, open the modal 
 btn.addEventListener("click", function () {
@@ -50,7 +50,9 @@ startBtn.addEventListener("click", function () {
   //api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc
   // http:api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc
 
- 
+var  maze = document.createElement("")
+
+
 
 var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
 fetch(giphyURL)
