@@ -51,7 +51,7 @@ startBtn.addEventListener("click", function () {
   // http:api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc
 
 var  maze = document.createElement("")
-
+maze.setAttribute("src", "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc")
 
 
 var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
