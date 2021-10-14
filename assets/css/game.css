@@ -13,5 +13,6 @@
   
   .bear-icon {
     max-width: 35px;
-    max-height: auto;
+    max-height: 35px;
+    position: absolute;
   }

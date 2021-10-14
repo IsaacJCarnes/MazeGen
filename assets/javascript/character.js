@@ -2,6 +2,8 @@
 
 var blocks = document.querySelectorAll("div");
 var startPoint = document.getElementById("00 00");
+var colPos = 0;
+var rowPos = 0;
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -11,7 +13,6 @@ function callCharacter() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       bearIcon = data.bea02.icon_uri;
       tigerIcon = data.tig04.icon_uri;
       wolfIcon = data.wol04.icon_uri;
@@ -19,201 +20,231 @@ function callCharacter() {
       goatIcon = data.goa02.icon_uri;
 
       icon = [bearIcon, tigerIcon, wolfIcon, frogIcon, goatIcon];
-      console.log(icon);
+      iconImage.setAttribute(
+        "src",
+        icon[Math.floor(Math.random() * icon.length)]
+      );
     });
 }
 callCharacter();
-
-// function createBearIcon(bearIcon) {
 var iconImage = document.createElement("img");
-// iconImage.setAttribute("src", bearIcon);
-iconImage.setAttribute("src", "https://acnhapi.com/v1/icons/villagers/10");
 iconImage.setAttribute("alt", "bear icon");
 iconImage.setAttribute("id", "userIcon");
 iconImage.setAttribute("class", "bear-icon");
+// iconImage.setAttribute(
+//   "src", "https://acnhapi.com/v1/icons/villagers/158" ); placeholder image, use generic image instead animal
 startPoint.appendChild(iconImage);
-// }
 
-function moveRight() {
-  document.addEventListener("keydown", function (event) {
-    var key = event.key.toLowerCase();
-
-    if ("wasd".indexOf(key) >= 0) {
-      switch (key) {
-        case "d":
-          console.log("Move right");
-          var cellID = iconImage.parentNode.id;
-          // console.log(cellID);
-          var cellArray = cellID.split(" ");
-          // console.log(cellArray);
-          var firstIndex = parseInt(cellArray[0]);
-          // console.log(firstIndex);
-          var movedToCell = firstIndex + 1;
-          // console.log(movedToCell);
-          var backToString = JSON.stringify(movedToCell);
-          // console.log(backToString);
-          var revertedString = "0";
-          // console.log(backToString.length);
-          var completedID = "";
-          if (backToString.length === 1) {
-            completedID = revertedString + backToString;
-          } else if (backToString.length === 2) {
-            completedID = backToString;
-          }
-          // console.log(completedID);
-          cellArray[0] = completedID;
-          // console.log(cellArray);
-          // console.log(completedID);
-          var newLocation = cellArray.join(" ");
-          // console.log(newLocation);
-          
-          // console.log(document.getElementById(`${newLocation}`))
-          // // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          // document.getElementById(`${newLocation}`).appendChild(iconImage)
-          // if (document.getElementById(`${newLocation}`).getAttribute("data-is-wall") === true) {
-          //   return;
-          // } else {
-          document.getElementById(`${newLocation}`).appendChild(iconImage);
-          // }
-          break;
-      }
-    }
-  });
+function moveCharacterLeft() {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[0]);
+  var movedToCell = firstIndex - 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[0] = completedID;
+  var newLocation = cellArray.join(" ");
+  document.getElementById(`${newLocation}`).appendChild(iconImage);
 }
 
-function moveUp() {
-  document.addEventListener("keydown", function (event) {
-    var key = event.key.toLowerCase();
-
-    if ("wasd".indexOf(key) >= 0) {
-      switch (key) {
-        case "w":
-          console.log("Move up");
-          var cellID = iconImage.parentNode.id;
-          var cellArray = cellID.split(" ");
-          var secondIndex = parseInt(cellArray[1]);
-          var movedToCell = secondIndex - 1;
-          var backToString = JSON.stringify(movedToCell);
-          var revertedString = "0";
-          var completedID = "";
-          if (backToString.length === 1) {
-            completedID = revertedString + backToString;
-          } else if (backToString.length === 2) {
-            completedID = backToString;
-          }
-          cellArray[1] = completedID;
-          var newLocation = cellArray.join(" ");
-          console.log(newLocation);
-          // console.log(document.getElementById(`${newLocation}`))
-          // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage);
-          break;
-      }
-    }
-  });
+function moveCharacterRight() {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[0]);
+  var movedToCell = firstIndex + 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[0] = completedID;
+  var newLocation = cellArray.join(" ");
+  document.getElementById(`${newLocation}`).appendChild(iconImage);
 }
 
-function moveDown() {
-  document.addEventListener("keydown", function (event) {
-    var key = event.key.toLowerCase();
-
-    if ("wasd".indexOf(key) >= 0) {
-      switch (key) {
-        case "s":
-          console.log("Move down");
-          var cellID = iconImage.parentNode.id;
-          var cellArray = cellID.split(" ");
-          var secondIndex = parseInt(cellArray[1]);
-          var movedToCell = secondIndex + 1;
-          var backToString = JSON.stringify(movedToCell);
-          var revertedString = "0";
-          var completedID = "";
-          if (backToString.length === 1) {
-            completedID = revertedString + backToString;
-          } else if (backToString.length === 2) {
-            completedID = backToString;
-          }
-          cellArray[1] = completedID;
-          var newLocation = cellArray.join(" ");
-          // console.log(document.getElementById(`${newLocation}`))
-          // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage);
-          break;
-      }
-    }
-  });
+function moveCharacterUp() {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[1]);
+  var movedToCell = firstIndex - 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[1] = completedID;
+  var newLocation = cellArray.join(" ");
+  document.getElementById(`${newLocation}`).appendChild(iconImage);
 }
 
-function moveLeft() {
-  document.addEventListener("keydown", function (event) {
-    var key = event.key.toLowerCase();
-
-    if ("wasd".indexOf(key) >= 0) {
-      switch (key) {
-        case "a":
-          console.log("Move left");
-          var cellID = iconImage.parentNode.id;
-          var cellArray = cellID.split(" ");
-          var firstIndex = parseInt(cellArray[0]);
-          var movedToCell = firstIndex - 1;
-          var backToString = JSON.stringify(movedToCell);
-          var revertedString = "0";
-          var completedID = "";
-          if (backToString.length === 1) {
-            completedID = revertedString + backToString;
-          } else if (backToString.length === 2) {
-            completedID = backToString;
-          }
-          cellArray[0] = completedID;
-          var newLocation = cellArray.join(" ");
-          // console.log(document.getElementById(`${newLocation}`))
-          // console.log(document.getElementById(`${newLocation}`).getAttribute("data-is-wall"))
-          document.getElementById(`${newLocation}`).appendChild(iconImage);
-          break;
-      }
-    }
-  });
+function moveCharacterDown() {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[1]);
+  var movedToCell = firstIndex + 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[1] = completedID;
+  var newLocation = cellArray.join(" ");
+  document.getElementById(`${newLocation}`).appendChild(iconImage);
 }
 
-// function numberToStringID(numberID) {
-//   //Returns string id
-//   var split = numberID.split(" ", 2);
-//   var newId = "";
-//   if (split[0] < 10) {
-//     //Col
-//     newId = newId.concat("0" + split[0]);
-//   } else {
-//     newId = newId.concat(split[0]);
-//   }
-//   newId = newId.concat(" ");
-//   if (split[1] < 0) {
-//     //Row
-//     newId = newId.concat("-" + "0" + Math.abs(split[1]));
-//   } else if (split[1] < 10) {
-//     newId = newId.concat("0" + split[1]);
-//   } else {
-//     newId = newId.concat(split[1]);
-//   }
-//   return newId;
-// }
+function checkIfWall(x, y) {
+  var cellArray = [x, y];
+  var newLocation = cellArray.join(" ");
+  return (
+    document.getElementById(`${newLocation}`).getAttribute("data-is-wall") ===
+    "true"
+  );
+}
 
-// console.log(blocks)
-// for (var i = 0; i < 19; i++) {
-//   var blockData = blocks[i].getAttribute("data-is-wall");
-//   console.log(blockData);
-// }
+function checkIfFinished(x, y) {
+  var cellArray = [x, y];
+  var newLocation = cellArray.join(" ");
+  let rows =
+    document.getElementById("playContainer").getAttribute("data-rows") - 1;
+  let cols =
+    document.getElementById("playContainer").getAttribute("data-cols") - 1;
+  document.getElementById(rows + " " + cols);
+  if (cols == x && rows == y) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-// function startPlacement(){
-// for(var i = 0; i < 2; i++){
-//   for(var j = 0; j <= i; j++){
-//     console.log(numberToStringID(i + " " + j));
-//     console.log(numberToStringID(j + " " + i));
-//   }
-// }
-// }
+function upEventHandler(event) {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[1]);
+  var movedToCell = firstIndex - 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[1] = completedID;
+  var newLocation = cellArray.join(" ");
+  if (checkIfWall(cellArray[0], cellArray[1])) {
+    // "do nothing"
+  } else {
+    moveCharacterUp();
+    rowPos --;
+  }
+}
 
-// startPlacement();
-moveUp();
-moveDown();
-moveLeft();
-moveRight();
+function downEventHandler(event) {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[1]);
+  var movedToCell = firstIndex + 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[1] = completedID;
+  var newLocation = cellArray.join(" ");
+  if (checkIfWall(cellArray[0], cellArray[1])) {
+    // "do nothing"
+  } else {
+    moveCharacterDown();
+    rowPos ++;
+    if (checkIfFinished(cellArray[0], cellArray[1])) {
+      console.log("you won");
+    }
+  }
+}
+function rightEventHandler(event) {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[0]);
+  var movedToCell = firstIndex + 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[0] = completedID;
+  var newLocation = cellArray.join(" ");
+  if (checkIfWall(cellArray[0], cellArray[1])) {
+    // "do nothing"
+  } else {
+    moveCharacterRight();
+    colPos ++;
+    if (checkIfFinished(cellArray[0], cellArray[1])) {
+      console.log("you won");
+    }
+  }
+}
+function leftEventHandler(event) {
+  var cellID = iconImage.parentNode.id;
+  var cellArray = cellID.split(" ");
+  var firstIndex = parseInt(cellArray[0]);
+  var movedToCell = firstIndex - 1;
+  var backToString = JSON.stringify(movedToCell);
+  var revertedString = "0";
+  var completedID = "";
+  if (backToString.length === 1) {
+    completedID = revertedString + backToString;
+  } else if (backToString.length === 2) {
+    completedID = backToString;
+  }
+  cellArray[0] = completedID;
+  var newLocation = cellArray.join(" ");
+  if (checkIfWall(cellArray[0], cellArray[1])) {
+    // "do nothing"
+  } else {
+    moveCharacterLeft();
+    colPos --;
+  }
+}
+
+document.addEventListener("keydown", function (event) {
+  var key = event.key.toLowerCase();
+
+  if ("wasd".indexOf(key) >= 0) {
+    switch (key) {
+      case "s":
+        downEventHandler(event);
+        break;
+      case "w":
+        upEventHandler(event);
+        break;
+      case "d":
+        rightEventHandler(event);
+        break;
+      case "a":
+        leftEventHandler(event);
+        break;
+    }
+    console.log(colPos + " " + rowPos)
+  }
+});

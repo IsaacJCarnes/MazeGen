@@ -202,9 +202,9 @@ addWallToArea(areaPoint1, areaPoint2, true);*/
 function mazeFromArray(mazeArray){
     for(i = 0; i < mazeArray.length; i++){
         for(j = 0; j < mazeArray[i].length; j++){
-            if(fixedMaze[i][j] == 'x'){
+            if(mazeArray[i][j] == 'x'){
                 cellToWall(numberToStringID(j + " " + i));
-            } else if(fixedMaze[i][j] == 'o'){
+            } else if(mazeArray[i][j] == 'o'){
                 cellToPath(numberToStringID(j + " " + i));
             }
             console.log(i + " " + j);
@@ -212,7 +212,16 @@ function mazeFromArray(mazeArray){
     }
 }
 
-var fixedMaze = [
+function randomMaze(){
+    if(mazes.length > 0){
+        mazeFromArray(mazes[Math.floor(Math.random() * mazes.length)]);
+        return 1;
+    } else {
+        return null;
+    }
+}
+
+var fixedMaze1 = [
     ['o', 'o', 'x', 'o', 'o','x', 'o', 'x', 'o', 'o','x', 'o', 'o', 'x', 'o','o', 'x', 'x', 'o'],
     ['x', 'o', 'x', 'o', 'x','x', 'o', 'x', 'o', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
     ['o', 'o', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o'],
@@ -234,4 +243,6 @@ var fixedMaze = [
     ['o', 'o', 'x', 'x', 'o','o', 'x', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'x', 'o']
 ];
 
-mazeFromArray(fixedMaze);
+var mazes = [fixedMaze1];
+
+randomMaze();
