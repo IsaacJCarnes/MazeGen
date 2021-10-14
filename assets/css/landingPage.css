@@ -13,6 +13,8 @@ h2 {
 
 p {
   font-size: 20px;
+  display: grid;
+  place-items: center;
 }
 
 button {
@@ -67,10 +69,11 @@ nav {
 #start-button-box {
   display: grid;
   place-items: center;
-  padding: 30px;
+  padding: 25px;
 }
 
-#start-button{
+#start-button {
+  display: flex;
   margin: auto;
 }
 
