@@ -28,7 +28,6 @@ startBtn.addEventListener("click", function () {
     document.location = "mazePage.html"
     const playContainer = ["#playContainer"]
 })
-
 var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
 fetch(giphyURL)
 .then(function (response) {

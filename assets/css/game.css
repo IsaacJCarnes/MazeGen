@@ -1,18 +1,44 @@
 #playContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: absolute;
-    left: 2.5%;
-    top: 2.5%;
-    width: 95%;
-    height: 95%;
-    background: black;
-    border: 1px solid whitesmoke;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+  width: 95%;
+  height: 95%;
+  background: black;
+  border: 1px solid whitesmoke;
+}
+
+.character-icon {
+  max-width: 35px;
+  max-height: 35px;
+  position: absolute;
+}
+
+#bounce-back {
+  animation-name: bounce;
+  animation-duration: 1s;
+}
+
+@keyframes bounce {
+  0% {
+    background-color: white;
+    top: 0px;
+    bottom:0px;
   }
-  
-  .bear-icon {
-    max-width: 35px;
-    max-height: 35px;
-    position: absolute;
+  30% {
+    background-color: red;
+    top: 5px;
   }
+  60% {
+    background-color: white;
+    bottom: 5px;
+  }
+  100% {
+    background-color: white;
+    top: 0px;
+    bottom: 0px;
+  }
+}
