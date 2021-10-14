@@ -34,7 +34,6 @@ startBtn.addEventListener("click", function () {
 giphy();
 
 function giphy(){
-  console.log("Will show a giphy");
   // empty container
   // mainContainer.innerHTML = "";
   var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
@@ -43,7 +42,7 @@ function giphy(){
       return response.json();
     })
     .then(function (data) {
-      console.log(data.data[1].images.original.url);
+      // console.log(data.data[1].images.original.url);
       var gifImg = document.getElementById("mazeGif");
       var gifURL = data.data[1].images.original.url;
       gifImg.setAttribute("src", gifURL);
