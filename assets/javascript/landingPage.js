@@ -3,7 +3,7 @@ var btn = document.getElementById("modal-button");
 var span = document.getElementsByClassName("close")[0];
 var maze = document.getElementsByClassName("")
 var mainContainer = document.querySelector(".mainContainer")
-var giphyLink = document.querySelector("#giphy-link")
+// var giphyLink = document.querySelector("#giphy-link")
 
 // When the user clicks the button, open the modal 
 btn.addEventListener("click", function () {

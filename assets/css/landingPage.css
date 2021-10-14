@@ -8,6 +8,7 @@ header {
 
 h2 {
   color: darkgreen;
+  text-align: center;
 }
 
 p {
@@ -61,4 +62,19 @@ nav {
   justify-content: space-around;
   margin: 10px;
   background-color: green;
+}
+
+#start-button-box {
+  display: grid;
+  place-items: center;
+  padding: 30px;
+}
+
+#start-button{
+  margin: auto;
+}
+
+.mainContainer {
+  display: grid;
+  place-items: center;
 }
