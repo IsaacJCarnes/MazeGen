@@ -1,3 +1,4 @@
+
 header {
   padding: 20px;
   text-align: center;
@@ -75,6 +76,13 @@ nav {
 #start-button {
   display: flex;
   margin: auto;
+  color: white;
+  border-radius: 20px;
+  border-width: 10px;
+  background-image: linear-gradient(rgb(27, 70, 2), rgb(13, 139, 9))
+}
+body {
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
 }
 
 .mainContainer {
