@@ -104,7 +104,6 @@ function fillCells(startCell, finishCell){
 
 function randomCellFromArea(topLeft, bottomRight){ //Picks a random cell between two points
     let distance = cellDistance(topLeft, bottomRight);
-    console.log(distance);
     if(getCol(distance) <= 2 && getRow(distance) <= 2){ //getCol is horizontal distance, getRow is vertical distance
         console.log("area too small");
         return;
@@ -207,14 +206,16 @@ function mazeFromArray(mazeArray){
             } else if(mazeArray[i][j] == 'o'){
                 cellToPath(numberToStringID(j + " " + i));
             }
-            console.log(i + " " + j);
         } 
     }
 }
 
 function randomMaze(){
     if(mazes.length > 0){
-        mazeFromArray(mazes[Math.floor(Math.random() * mazes.length)]);
+        let mazeChosen = Math.floor(Math.random() * mazes.length);
+        mazeFromArray(mazes[mazeChosen]);
+        mazesDone.push(mazes[i]);
+        mazes.splice(i, 1);
         return 1;
     } else {
         return null;
@@ -266,4 +267,5 @@ var fixedMaze2 = [
 ];
 
 var mazes = [fixedMaze1, fixedMaze2];
+var mazesDone = [];
 randomMaze();
