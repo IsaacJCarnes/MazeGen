@@ -176,13 +176,9 @@ function downEventHandler(event) {
     moveCharacterDown();
     rowPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
-      console.log("you won");
       setTimeout(function() { randomMaze(); }, 500);
       setTimeout(function() { callCharacter(); }, 500);
       setTimeout(function() { placeCharacter(); }, 500);
-      // randomMaze();
-      // callCharacter();
-      // placeCharacter();
     }
   }
 }
@@ -207,7 +203,7 @@ function rightEventHandler(event) {
     moveCharacterRight();
     colPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
-      console.log("you won");
+
       setTimeout(function() { randomMaze(); }, 500);
       setTimeout(function() { callCharacter(); }, 500);
       setTimeout(function() { placeCharacter(); }, 500);
@@ -255,7 +251,6 @@ document.addEventListener("keydown", function (event) {
         leftEventHandler(event);
         break;
     }
-    console.log(colPos + " " + rowPos);
   }
 });
 
