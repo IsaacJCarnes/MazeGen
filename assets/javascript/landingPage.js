@@ -28,11 +28,11 @@ startBtn.addEventListener("click", function () {
     const playContainer = ["#playContainer"]
 })
 
-// var giphyURL = "api.giphy.com/v1/gifs/{gif_id}"
-// fetch(giphyURL)
-// .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//   })
+var giphyURL = "api.giphy.com/v1/gifs/Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc/{XBpUGMmoGM4DVHoRMZ}"
+fetch(giphyURL)
+.then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
+  })
