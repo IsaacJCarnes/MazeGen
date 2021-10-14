@@ -28,6 +28,18 @@ startBtn.addEventListener("click", function () {
     document.location = "mazePage.html"
     const playContainer = ["#playContainer"]
 })
+
+
+function giphy(){
+  console.log("Will show a giphy");
+  // empty container
+  mainContainer.innerHTML = "";
+
+  var giphyURL = document.createElement("img");
+  giphyURL.setAttribute("id", "giphy");
+  giphyURL.setAttribute("src", "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc");
+  giphyURL.setAttribute("alt", "maze giphy");
+
 var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
 fetch(giphyURL)
 .then(function (response) {
@@ -35,4 +47,4 @@ fetch(giphyURL)
   })
   .then(function (data) {
     console.log(data.data[1].images.original.url)
-  })
+  })}
