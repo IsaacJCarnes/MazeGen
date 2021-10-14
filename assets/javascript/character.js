@@ -2,6 +2,8 @@
 
 var blocks = document.querySelectorAll("div");
 var startPoint = document.getElementById("00 00");
+var colPos = 0;
+var rowPos = 0;
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -29,6 +31,8 @@ var iconImage = document.createElement("img");
 iconImage.setAttribute("alt", "bear icon");
 iconImage.setAttribute("id", "userIcon");
 iconImage.setAttribute("class", "bear-icon");
+// iconImage.setAttribute(
+//   "src", "https://acnhapi.com/v1/icons/villagers/158" ); placeholder image, use generic image instead animal
 startPoint.appendChild(iconImage);
 
 function moveCharacterLeft() {
@@ -112,6 +116,21 @@ function checkIfWall(x, y) {
   );
 }
 
+function checkIfFinished(x, y) {
+  var cellArray = [x, y];
+  var newLocation = cellArray.join(" ");
+  let rows =
+    document.getElementById("playContainer").getAttribute("data-rows") - 1;
+  let cols =
+    document.getElementById("playContainer").getAttribute("data-cols") - 1;
+  document.getElementById(rows + " " + cols);
+  if (cols == x && rows == y) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function upEventHandler(event) {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
@@ -131,8 +150,10 @@ function upEventHandler(event) {
     // "do nothing"
   } else {
     moveCharacterUp();
+    rowPos --;
   }
 }
+
 function downEventHandler(event) {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
@@ -152,6 +173,10 @@ function downEventHandler(event) {
     // "do nothing"
   } else {
     moveCharacterDown();
+    rowPos ++;
+    if (checkIfFinished(cellArray[0], cellArray[1])) {
+      console.log("you won");
+    }
   }
 }
 function rightEventHandler(event) {
@@ -173,6 +198,10 @@ function rightEventHandler(event) {
     // "do nothing"
   } else {
     moveCharacterRight();
+    colPos ++;
+    if (checkIfFinished(cellArray[0], cellArray[1])) {
+      console.log("you won");
+    }
   }
 }
 function leftEventHandler(event) {
@@ -194,6 +223,7 @@ function leftEventHandler(event) {
     // "do nothing"
   } else {
     moveCharacterLeft();
+    colPos --;
   }
 }
 
@@ -215,5 +245,6 @@ document.addEventListener("keydown", function (event) {
         leftEventHandler(event);
         break;
     }
+    console.log(colPos + " " + rowPos)
   }
 });
