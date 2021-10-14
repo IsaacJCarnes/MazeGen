@@ -3,7 +3,7 @@ var btn = document.getElementById("modal-button");
 var span = document.getElementsByClassName("close")[0];
 var maze = document.getElementsByClassName("")
 var mainContainer = document.querySelector(".mainContainer")
-var giphyLink = document.querySelector("#giphy-link")
+// var giphyLink = document.querySelector("#giphy-link")
 
 // When the user clicks the button, open the modal 
 btn.addEventListener("click", function () {
@@ -47,12 +47,14 @@ function giphy(){
     })
     .then(function (data) {
       console.log(data.data[1].images.original.url)
+      var giphyLink = document.createElement("a")
       var giphyURL = document.createElement("img");
       giphyURL.setAttribute("id", "giphy");
       // giphyURL.setAttribute("src", "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc");
       giphyURL.setAttribute("alt", "maze giphy");
       giphyURL.setAttribute("src", data.data[1].images.original.url);
       giphyLink.setAttribute("href", data.data[1].images.original.url);
+      mainContainer.appendChild(giphyLink)
       giphyLink.appendChild(giphyURL);
 
     })
