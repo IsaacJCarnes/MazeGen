@@ -36,16 +36,14 @@ giphy();
 function giphy(){
   console.log("Will show a giphy");
   // empty container
-  mainContainer.innerHTML = "";
-
-
-
+  // mainContainer.innerHTML = "";
   var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
   fetch(giphyURL)
   .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+<<<<<<< HEAD
       console.log(data.data[1].images.original.url)
       var giphyLink = document.createElement("a")
       var giphyURL = document.createElement("img");
@@ -56,6 +54,21 @@ function giphy(){
       giphyLink.setAttribute("href", data.data[1].images.original.url);
       mainContainer.appendChild(giphyLink)
       giphyLink.appendChild(giphyURL);
+=======
+      console.log(data.data[1].images.original.url);
+      var gifImg = document.getElementById("mazeGif");
+      var gifURL = data.data[1].images.original.url;
+      gifImg.setAttribute("src", gifURL);
+
+
+      // var giphyURL = document.createElement("img");
+      // giphyURL.setAttribute("id", "giphy");
+      // // giphyURL.setAttribute("src", "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc");
+      // giphyURL.setAttribute("alt", "maze giphy");
+      // giphyURL.setAttribute("src", data.data[1].images.original.url);
+      // giphyLink.setAttribute("href", data.data[1].images.original.url);
+      // giphyLink.appendChild(giphyURL);
+>>>>>>> 7cae073cbbb51dce53362b9798b26e9ded389cf9
 
     })
 }

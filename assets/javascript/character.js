@@ -4,6 +4,7 @@ var blocks = document.querySelectorAll("div");
 var startPoint = document.getElementById("00 00");
 var colPos = 0;
 var rowPos = 0;
+var iconImage = document.createElement("img");
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -26,14 +27,14 @@ function callCharacter() {
       );
     });
 }
-callCharacter();
-var iconImage = document.createElement("img");
-iconImage.setAttribute("alt", "bear icon");
-iconImage.setAttribute("id", "userIcon");
-iconImage.setAttribute("class", "bear-icon");
-// iconImage.setAttribute(
-//   "src", "https://acnhapi.com/v1/icons/villagers/158" ); placeholder image, use generic image instead animal
-startPoint.appendChild(iconImage);
+
+function placeCharacter() {
+  iconImage.setAttribute("alt", "bear icon");
+  iconImage.setAttribute("id", "userIcon");
+  iconImage.setAttribute("class", "character-icon");
+  iconImage.setAttribute("src", "assets/images/loading-circle.png");
+  startPoint.appendChild(iconImage);
+}
 
 function moveCharacterLeft() {
   var cellID = iconImage.parentNode.id;
@@ -145,12 +146,12 @@ function upEventHandler(event) {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
     moveCharacterUp();
-    rowPos --;
+    rowPos--;
   }
 }
 
@@ -168,14 +169,16 @@ function downEventHandler(event) {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
     moveCharacterDown();
-    rowPos ++;
+    rowPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
-      console.log("you won");
+      setTimeout(function() { randomMaze(); }, 500);
+      setTimeout(function() { callCharacter(); }, 500);
+      setTimeout(function() { placeCharacter(); }, 500);
     }
   }
 }
@@ -193,14 +196,17 @@ function rightEventHandler(event) {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
     moveCharacterRight();
-    colPos ++;
+    colPos++;
     if (checkIfFinished(cellArray[0], cellArray[1])) {
-      console.log("you won");
+
+      setTimeout(function() { randomMaze(); }, 500);
+      setTimeout(function() { callCharacter(); }, 500);
+      setTimeout(function() { placeCharacter(); }, 500);
     }
   }
 }
@@ -218,12 +224,12 @@ function leftEventHandler(event) {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  var newLocation = cellArray.join(" ");
+  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
   } else {
     moveCharacterLeft();
-    colPos --;
+    colPos--;
   }
 }
 
@@ -245,6 +251,13 @@ document.addEventListener("keydown", function (event) {
         leftEventHandler(event);
         break;
     }
-    console.log(colPos + " " + rowPos)
   }
 });
+
+function characterHitWall() {
+  iconImage.setAttribute("id", "bounce-back");
+}
+// have to make sure it only temporarily sets ID then goes back to normal
+
+callCharacter();
+placeCharacter();
