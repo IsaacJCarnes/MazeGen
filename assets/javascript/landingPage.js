@@ -28,7 +28,13 @@ const playContainer = document.getElementById("playContainer");
 startBtn.addEventListener("click", function () {
     console.log("start");
     document.location = "mazePage.html"
-    const playContainer = ["#playContainer"]
+    // const playContainer = ["#playContainer"]
+})
+
+var highScoreBtn = document.querySelector("#highScore-button");
+highScoreBtn.addEventListener("click", function () {
+  console.log("highscore");
+  document.location = "highScore.html"
 })
 
 giphy();

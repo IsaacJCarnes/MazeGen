@@ -6,7 +6,6 @@ if (localStorage.getItem("highScores") != null) {
   allHighScores = JSON.parse(localStorage.getItem("highScores"));
 }
 
-
 // after click or submit event
 event.preventDefault;
 var userInput = document.getElementById("fill-this-in-with-actual-id");
@@ -51,5 +50,17 @@ function viewHighScores() {
   displayHighScores();
 }
 
+var homePageButton = document.querySelector("#go-back-button")
+function returnHome (){
+  homePageButton.addEventListener("click", function () {
+    document.location = "index.html"
+  })
+}
 // go back button and function?
+var clearHighscoreButton = document.querySelector("#reset-highScores")
+function clearHighScores() {
+  clearHighscoreButton.addEventListener("click", function () {
+    localStorage.removeItem("highscores");
+  });
+}
 // clear highscores button and function?
