@@ -1,15 +1,20 @@
 console.log("hello world");
-var highScoreButton = document.getElementById("highScores");
+var highScoreButton = document.querySelector("#highScore-button");
+var highScoreContainer = document.querySelector("#highScore-container");
+var homePageButton = document.querySelector("#go-back-button");
+
+homePageButton.addEventListener("click", function () {
+  document.location = "index.html";
+});
 
 var allHighScores = [];
 if (localStorage.getItem("highScores") != null) {
   allHighScores = JSON.parse(localStorage.getItem("highScores"));
 }
 
-
 // after click or submit event
 event.preventDefault;
-var userInput = document.getElementById("fill-this-in-with-actual-id");
+var userInput = document.querySelector("#user-name-text");
 var nameHighScore = {
   // score: value retrieved from mazes complete
   userName: userInput.value,
@@ -26,15 +31,15 @@ function saveHighScores() {
 }
 
 function renderHighScores() {
-  somethingContainer.innerHTML = "";
+  highScoreContainer.innerHTML = "";
 
-  for (var i = 0; i < highScores.length; i++) {
-    var higSscoreName = highScores[i].userName;
-    var highScore = highScores[i].score;
+  for (var i = 0; i < allHighScores.length; i++) {
+    var highScoreName = allHighScores[i].userName;
+    var highScore = allHighScores[i].score;
 
     var p = document.createElement("p");
     p.setAttribute("data-index", i);
-    document.querySelector("#ID FROM CONTAINER").appendChild(p);
+    highScoreContainer.appendChild(p);
     p.textContent = `${highScoreName} ${highScore}`;
   }
 }
@@ -51,5 +56,10 @@ function viewHighScores() {
   displayHighScores();
 }
 
-// go back button and function?
+var clearHighscoreButton = document.querySelector("#reset-highScores");
+function clearHighScores() {
+  clearHighscoreButton.addEventListener("click", function () {
+    localStorage.removeItem("highscores");
+  });
+}
 // clear highscores button and function?
