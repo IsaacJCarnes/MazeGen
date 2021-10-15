@@ -1,6 +1,11 @@
 console.log("hello world");
 var highScoreButton = document.getElementById("highScores");
 
+var homePageButton = document.querySelector("#go-back-button")
+  homePageButton.addEventListener("click", function () {
+    document.location = "index.html"
+  })
+
 var allHighScores = [];
 if (localStorage.getItem("highScores") != null) {
   allHighScores = JSON.parse(localStorage.getItem("highScores"));
@@ -50,13 +55,6 @@ function viewHighScores() {
   displayHighScores();
 }
 
-var homePageButton = document.querySelector("#go-back-button")
-function returnHome (){
-  homePageButton.addEventListener("click", function () {
-    document.location = "index.html"
-  })
-}
-// go back button and function?
 var clearHighscoreButton = document.querySelector("#reset-highScores")
 function clearHighScores() {
   clearHighscoreButton.addEventListener("click", function () {
