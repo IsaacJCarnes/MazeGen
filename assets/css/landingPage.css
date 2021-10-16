@@ -7,14 +7,21 @@ header {
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
 }
 
-h2 {
+#indexHeader {
   text-align: center;
+  /* display: flex; */
+  margin: auto;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: rgb(5, 61, 8);
+  border-radius: 20px;
+  border-width: 10px;
 }
 
 p {
   font-size: 20px;
   display: grid;
   place-items: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   color: white;
 }
 
@@ -82,7 +89,7 @@ nav {
   color: white;
   border-radius: 20px;
   border-width: 10px;
-  background-image: linear-gradient(rgb(27, 70, 2), rgb(13, 139, 9))
+  background-image: repeating-linear-gradient(rgb(27, 70, 2), rgb(13, 139, 9) 25%)
 }
 body {
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
@@ -92,3 +99,4 @@ body {
   display: grid;
   place-items: center;
 }
+
