@@ -10,6 +10,20 @@ var vertChange = 21;
 var leftStretch = 0;
 var horiChange = 21;
 
+var timeContainer = document.querySelector("#timeContainer");
+var seconds = 0;
+var timeInterval;
+function stopTime() {
+  clearInterval(timeInterval);
+}
+function countUp() {
+  timeContainer.textContent = `TIME: ${seconds}`;
+  timeInterval = setInterval(function () {
+    seconds++;
+    timeContainer.textContent = `TIME: ${seconds}`;
+  }, 1000);
+}
+
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
 
@@ -291,20 +305,6 @@ function characterHitWall() {
   iconImage.setAttribute("id", "bounce-back");
 }
 // have to make sure it only temporarily sets ID then goes back to normal
-
-var timeContainer = document.querySelector("#timeContainer");
-var secondsLeft = 0;
-var timeInterval;
-function stopTime() {
-  clearInterval(timeInterval);
-}
-function countUp() {
-  timeContainer.textContent = `TIME: ${secondsLeft}`;
-  timeInterval = setInterval(function () {
-    secondsLeft++;
-    timeContainer.textContent = `TIME: ${secondsLeft}`;
-  }, 1000);
-}
 
 callCharacter();
 placeCharacter();

@@ -62,4 +62,3 @@ console.log("hello world");
 //     localStorage.removeItem("highscores");
 //   });
 // }
-// clear highscores button and function?
