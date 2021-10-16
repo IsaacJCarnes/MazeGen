@@ -65,20 +65,16 @@ function clearHighScores() {
 // clear highscores button and function?
 
 var timeContainer = document.querySelector("#time");
-var secondsLeft = 120;
+var secondsLeft = 0;
 var timeInterval;
 function stopTime() {
   clearInterval(timeInterval);
 }
-function countdown() {
+function countUp() {
   timeContainer.textContent = `TIME: ${secondsLeft}`;
   timeInterval = setInterval(function () {
-    secondsLeft--;
-    timeContainer.textContent = secondsLeft;
-
-    if (secondsLeft <= 0) {
-      clearInterval(timeInterval);
-      document.location = "highScore.html";
-    }
+    secondsLeft++;
+    timeContainer.textContent = `TIME: ${secondsLeft}`;
   }, 1000);
 }
+console.log(timeInterval)
