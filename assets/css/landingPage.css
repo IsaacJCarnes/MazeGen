@@ -15,6 +15,7 @@ p {
   font-size: 20px;
   display: grid;
   place-items: center;
+  color: white;
 }
 
 button {
