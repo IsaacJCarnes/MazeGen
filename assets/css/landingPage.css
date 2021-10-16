@@ -1,24 +1,27 @@
+
 header {
   padding: 20px;
   text-align: center;
-  background: darkgreen;
   color: black;
   font-size: 20px;
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
 }
 
 h2 {
-  color: darkgreen;
   text-align: center;
 }
 
 p {
   font-size: 20px;
+  display: grid;
+  place-items: center;
 }
 
 button {
   padding: 20px;
   font-size: 20px;
   text-align: center;
+  border-radius: 25%;
 }
 
 .modal {
@@ -62,17 +65,25 @@ nav {
   display: flex;
   justify-content: space-around;
   margin: 10px;
-  background-color: green;
+  background-image: linear-gradient(rgb(32, 77, 2), rgb(113, 116, 113))
 }
 
 #start-button-box {
   display: grid;
   place-items: center;
-  padding: 30px;
+  padding: 25px;
 }
 
-#start-button{
+#start-button {
+  display: flex;
   margin: auto;
+  color: white;
+  border-radius: 20px;
+  border-width: 10px;
+  background-image: linear-gradient(rgb(27, 70, 2), rgb(13, 139, 9))
+}
+body {
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
 }
 
 .mainContainer {
