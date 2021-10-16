@@ -63,18 +63,3 @@ console.log("hello world");
 //   });
 // }
 // clear highscores button and function?
-
-// var timeContainer = document.querySelector("#time");
-// var secondsLeft = 0;
-// var timeInterval;
-// function stopTime() {
-//   clearInterval(timeInterval);
-// }
-// function countUp() {
-//   timeContainer.textContent = `TIME: ${secondsLeft}`;
-//   timeInterval = setInterval(function () {
-//     secondsLeft++;
-//     timeContainer.textContent = `TIME: ${secondsLeft}`;
-//   }, 1000);
-// }
-// console.log(timeInterval)
