@@ -1,10 +1,14 @@
-// console.log("hello world");
+//var playContainer = document.getElementById("playContainer");
 
 var blocks = document.querySelectorAll("div");
 var startPoint = document.getElementById("00 00");
 var colPos = 0;
 var rowPos = 0;
 var iconImage = document.createElement("img");
+var topStretch = 0;
+var vertChange = 21;
+var leftStretch = 0;
+var horiChange = 21;
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -52,6 +56,8 @@ function moveCharacterLeft() {
   cellArray[0] = completedID;
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
+  leftStretch = leftStretch + horiChange;
+  document.getElementById("playContainer").style.left = leftStretch + '%';
 }
 
 function moveCharacterRight() {
@@ -70,6 +76,9 @@ function moveCharacterRight() {
   cellArray[0] = completedID;
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
+
+  leftStretch = leftStretch - horiChange;
+  document.getElementById("playContainer").style.left = leftStretch + '%';
 }
 
 function moveCharacterUp() {
@@ -88,6 +97,9 @@ function moveCharacterUp() {
   cellArray[1] = completedID;
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
+
+  topStretch = topStretch + vertChange;
+  document.getElementById("playContainer").style.top = topStretch + '%';
 }
 
 function moveCharacterDown() {
@@ -106,6 +118,9 @@ function moveCharacterDown() {
   cellArray[1] = completedID;
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
+
+  topStretch = topStretch - vertChange;
+  document.getElementById("playContainer").style.top = topStretch + '%';
 }
 
 function checkIfWall(x, y) {
@@ -179,6 +194,11 @@ function downEventHandler(event) {
       setTimeout(function() { 
         if(randomMaze() == null){
           document.location = "highScore.html";
+        } else {
+          topStretch = 0;
+          leftStretch = 0;
+          document.getElementById("playContainer").style.top = 0 + '%';
+          document.getElementById("playContainer").style.left = 0 + '%';
         }
       }, 500);
       setTimeout(function() { callCharacter(); }, 500);
@@ -211,6 +231,11 @@ function rightEventHandler(event) {
       setTimeout(function() { 
         if(randomMaze() == null){
           document.location = "highScore.html";
+        } else {
+          topStretch = 0;
+          leftStretch = 0;
+          document.getElementById("playContainer").style.top = 0 + '%';
+          document.getElementById("playContainer").style.left = 0 + '%';
         }
       }, 500);
       setTimeout(function() { callCharacter(); }, 500);
