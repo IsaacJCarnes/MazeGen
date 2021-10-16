@@ -69,4 +69,4 @@ function giphy(){
 //        giphyLink.appendChild(giphyURL);
 
 //      })
-// }
+// 

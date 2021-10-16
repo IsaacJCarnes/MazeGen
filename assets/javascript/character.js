@@ -49,7 +49,7 @@ function callCharacter() {
 function placeCharacter() {
   iconImage.setAttribute("alt", "bear icon");
   iconImage.setAttribute("id", "userIcon");
-  iconImage.setAttribute("class", "character-icon");
+  iconImage.setAttribute("class", "character-icon uk-animation-fade");
   iconImage.setAttribute("src", "assets/images/loading-circle.png");
   startPoint.appendChild(iconImage);
 }
