@@ -63,3 +63,22 @@ function clearHighScores() {
   });
 }
 // clear highscores button and function?
+
+var timeContainer = document.querySelector("#time");
+var secondsLeft = 120;
+var timeInterval;
+function stopTime() {
+  clearInterval(timeInterval);
+}
+function countdown() {
+  timeContainer.textContent = `TIME: ${secondsLeft}`;
+  timeInterval = setInterval(function () {
+    secondsLeft--;
+    timeContainer.textContent = secondsLeft;
+
+    if (secondsLeft <= 0) {
+      clearInterval(timeInterval);
+      document.location = "highScore.html";
+    }
+  }, 1000);
+}
