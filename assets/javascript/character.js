@@ -50,6 +50,9 @@ function placeCharacter() {
   iconImage.setAttribute("alt", "bear icon");
   iconImage.setAttribute("id", "userIcon");
   iconImage.setAttribute("class", "character-icon uk-animation-fade");
+  setTimeout(function(imageElem){
+    imageElem.setAttribute("class", "character-icon");
+  }, 1000, iconImage)
   iconImage.setAttribute("src", "assets/images/loading-circle.png");
   startPoint.appendChild(iconImage);
 }
@@ -178,6 +181,7 @@ function upEventHandler(event) {
   // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
+    characterHitWall();
   } else {
     moveCharacterUp();
     rowPos--;
@@ -201,6 +205,7 @@ function downEventHandler(event) {
   // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
+    characterHitWall();
   } else {
     moveCharacterDown();
     rowPos++;
@@ -237,6 +242,7 @@ function rightEventHandler(event) {
   // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
+    characterHitWall();
   } else {
     moveCharacterRight();
     colPos++;
@@ -275,6 +281,7 @@ function leftEventHandler(event) {
   // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
     // "do nothing"
+    characterHitWall();
   } else {
     moveCharacterLeft();
     colPos--;
@@ -303,7 +310,10 @@ document.addEventListener("keydown", function (event) {
 });
 
 function characterHitWall() {
-  iconImage.setAttribute("id", "bounce-back");
+  iconImage.setAttribute("class", "character-icon uk-animation-shake");
+    setTimeout(function(imageElem){
+    imageElem.setAttribute("class", "character-icon");
+  }, 250, iconImage)
 }
 // have to make sure it only temporarily sets ID then goes back to normal
 
