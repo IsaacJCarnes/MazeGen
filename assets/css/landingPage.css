@@ -36,6 +36,7 @@ button {
   display: flex;
   flex-flow: column;
   align-items: center;
+  text-align: center;
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
