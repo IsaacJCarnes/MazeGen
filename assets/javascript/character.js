@@ -175,8 +175,12 @@ function downEventHandler(event) {
   } else {
     moveCharacterDown();
     rowPos++;
-    if (checkIfFinished(cellArray[0], cellArray[1])) {
-      setTimeout(function() { randomMaze(); }, 500);
+    if (checkIfFinished(cellArray[0], cellArray[1]) > 0) {
+      setTimeout(function() { 
+        if(randomMaze() == null){
+          document.location = "highScore.html";
+        }
+      }, 500);
       setTimeout(function() { callCharacter(); }, 500);
       setTimeout(function() { placeCharacter(); }, 500);
     }
@@ -202,9 +206,13 @@ function rightEventHandler(event) {
   } else {
     moveCharacterRight();
     colPos++;
-    if (checkIfFinished(cellArray[0], cellArray[1])) {
+    if (checkIfFinished(cellArray[0], cellArray[1]) > 0) {
 
-      setTimeout(function() { randomMaze(); }, 500);
+      setTimeout(function() { 
+        if(randomMaze() == null){
+          document.location = "highScore.html";
+        }
+      }, 500);
       setTimeout(function() { callCharacter(); }, 500);
       setTimeout(function() { placeCharacter(); }, 500);
     }
