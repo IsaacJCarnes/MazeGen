@@ -3,6 +3,7 @@ const colNum = 19; //based on 5% gridBox width and 95% playArea width
 const rowNum = 19; //based on 5% gridBox height and 95% playArea height
 
 const wallColor = "black";
+const wallColors = ["black", "black", "black", "red", "pink", "yellow", "aqua", "lightgreen"];
 const pathColor = "white";
 
 playContainer.dataset.cols = colNum;
@@ -50,7 +51,8 @@ function cellToWall(positionData){ //Adjusts the cell to be a path cell
         console.log("broken " + positionData);
     }
     let tempCell = document.getElementById(positionData);
-    tempCell.style.background = wallColor;
+    //tempCell.style.background = wallColor;
+    tempCell.style.background = wallColors[Math.floor(Math.random() * wallColors.length)];
     tempCell.dataset.isWall = true;
 }
 

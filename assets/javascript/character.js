@@ -243,6 +243,7 @@ function rightEventHandler(event) {
     }
   }
 }
+
 function leftEventHandler(event) {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
