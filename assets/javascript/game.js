@@ -214,8 +214,9 @@ function randomMaze(){
     if(mazes.length > 0){
         let mazeChosen = Math.floor(Math.random() * mazes.length);
         mazeFromArray(mazes[mazeChosen]);
-        mazesDone.push(mazes[i]);
-        mazes.splice(i, 1);
+        mazesDone.push(mazes[mazeChosen]);
+        mazes.splice(mazeChosen, 1);
+        console.log(mazes.length);
         return 1;
     } else {
         return null;
