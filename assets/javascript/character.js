@@ -292,5 +292,23 @@ function characterHitWall() {
 }
 // have to make sure it only temporarily sets ID then goes back to normal
 
+var timeContainer = document.querySelector("#time");
+var secondsLeft = 0;
+var timeInterval;
+function stopTime() {
+  clearInterval(timeInterval);
+}
+function countUp() {
+  timeContainer.textContent = `TIME: ${secondsLeft}`;
+  timeInterval = setInterval(function () {
+    secondsLeft++;
+    timeContainer.textContent = `TIME: ${secondsLeft}`;
+  }, 1000);
+}
+
 callCharacter();
 placeCharacter();
+countUp();
+
+console.log(timeInterval)
+
