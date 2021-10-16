@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets\css\landingPage.css" />
+    <title>HighScores</title>
+  </head>
+  <body>
+    <header>
+      <h1>Best of the Best</h1>
+    </header>
+    <nav>
+      <button id="go-back-button">Homepage</button>
+      <button id="reset-highScores">Reset Highscores</button>
+    </nav>
+
+    <main>
+      <section>
+        <form id="userForm">
+          <label for="initial-text">Enter Name:</label>
+          <input
+            type="text"
+            placeholder="Your name here"
+            id="user-name-text"
+            name="user-name-text"
+          />
+          <input type="submit" value="submit" />
+        </form>
+      </section>
+      
+      <section>
+        <h2>HighScores</h2>
+        <div id="highScore-container"></div>
+      </section>
+    </main>
+
+    <script src="./assets/javascript/highscore.js"></script>
+    <!-- <script src="./assets/javascript/game.js"></script> -->
+    <!-- <script src="./assets/javascript/landingPage.js"></script> -->
+  </body>
+</html>

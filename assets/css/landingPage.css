@@ -39,6 +39,7 @@ button {
   display: flex;
   flex-flow: column;
   align-items: center;
+  text-align: center;
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -53,6 +54,7 @@ button {
   font-size: 28px;
   font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
   color: #000;

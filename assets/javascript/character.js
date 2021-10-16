@@ -179,7 +179,7 @@ function downEventHandler(event) {
       setTimeout(function() { randomMaze(); }, 500);
       setTimeout(function() { callCharacter(); }, 500);
       setTimeout(function() { placeCharacter(); }, 500);
-    }
+    } 
   }
 }
 function rightEventHandler(event) {
