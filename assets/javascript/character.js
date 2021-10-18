@@ -13,8 +13,20 @@ var horiChange = 21;
 var timeContainer = document.querySelector("#timeContainer");
 var seconds = 0;
 var timeInterval;
+
+var finishedTime = [];
+if (localStorage.getItem("finshedTime") != null) {
+  finishedTime = JSON.parse(localStorage.getItem("finishedtime"));
+}
+function saveFinishedTime() {
+  localStorage.setItem("finishedTime", JSON.stringify(finishedTime));
+}
+
 function stopTime() {
   clearInterval(timeInterval);
+  var score = seconds
+  finishedTime.push(score);
+  saveFinishedTime();
 }
 function countUp() {
   timeContainer.textContent = `TIME: ${seconds}`;
@@ -214,6 +226,7 @@ function downEventHandler(event) {
         if(randomMaze() == null){
           stopTime();
           document.location = "highScore.html";
+          // console.log(seconds) this does stop and log the correct time when a user finishes the last maze
         } else {
           topStretch = 0;
           leftStretch = 0;
@@ -253,6 +266,7 @@ function rightEventHandler(event) {
         if(randomMaze() == null){
           stopTime();
           document.location = "highScore.html";
+          // console.log(seconds) logs correct time, how to get this onto highscores
         } else {
           topStretch = 0;
           leftStretch = 0;
@@ -317,9 +331,9 @@ function characterHitWall() {
     imageElem.setAttribute("class", "character-icon");
   }, 250, iconImage)
 }
-// have to make sure it only temporarily sets ID then goes back to normal
 
 callCharacter();
 placeCharacter();
 countUp();
+
 
