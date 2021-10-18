@@ -41,10 +41,10 @@ function renderHighScores() {
     var highScoreName = allHighScores[i].userName;
     var highScore = allHighScores[i].score;
 
-    var p = document.createElement("p");
-    p.setAttribute("data-index", i);
-    highScoreContainer.appendChild(p);
-    p.textContent = `${highScoreName} finished in ${highScore} seconds`;
+    var li = document.createElement("li");
+    li.setAttribute("data-index", i);
+    highScoreContainer.appendChild(li);
+    li.textContent = `${highScoreName}: ${highScore} seconds`;
   }
 }
 
