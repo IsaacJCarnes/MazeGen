@@ -74,7 +74,7 @@ nav {
   display: flex;
   justify-content: space-around;
   margin: 10px;
-  background-image: linear-gradient(rgb(32, 77, 2), rgb(113, 116, 113))
+  background-color: black;
 }
 
 #start-button-box {
@@ -92,7 +92,7 @@ nav {
   background-image: repeating-linear-gradient(rgb(27, 70, 2), rgb(13, 139, 9) 25%)
 }
 body {
-  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1))
+  background-color:rgb(5, 61, 8)
 }
 
 .mainContainer {
