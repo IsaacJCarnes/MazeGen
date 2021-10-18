@@ -8,14 +8,30 @@
     <link rel="stylesheet" href="assets\css\game.css">
     <script src="assets\javascript\game.js" defer></script>
     <script src="assets\javascript\character.js" defer></script>
-    <script src="assets\javascript\highScore.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css" />
-    <!-- <script src="./assets/javascript/highScore.js" defer></script> -->
 </head>
 <body>
     <section id="fullContainer">
         <h2 id="timeContainer"></h2>
         <container id="playContainer"></container>
     </section>
+
+    <section id="highModal" class="modal">
+        <div class="modal-content">
+          <h2>Congrats you finished!</h2>
+          <h2 id="finished-time-display"></h2>
+        <form id="userForm">
+          <label for="initial-text">Enter Name:</label>
+          <input
+            type="text"
+            placeholder="Your name here"
+            id="user-name-text"
+            name="user-name-text"
+          />
+          <input type="submit" value="submit" />
+        </form>
+      </div>
+      </section>
+
 </body>
 </html>
