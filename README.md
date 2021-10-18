@@ -4,9 +4,8 @@
 As a user on the home page you are presented withan instructions button on the left.
 An amimal will apear, the user will use the animal to navigate through different mazes.
 The user will have to use the "W' key to move up, the "A" key to move left, the "S" key to move down, and the "D" key to move right.
-The objective of the maze is to see how fast the maze runner can make it out of multiple mazzes.
-If the user gets to the end the fastest, the user will be presented with a highscore page. 
-On the highscore page, the user will be able to write their initials next to their time they've finished.
+The objective of the maze is to see how fast the maze runner can make it out of the multiple mazes.
+When the user gets to the end of the mazes, an alert will pop up letting the user know they've completed the mazes in x amount of seconds, and to put their name on the highscore page.
 The highscore page will also be on the home page on the top right.
 Goodluck!
 
