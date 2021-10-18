@@ -11,6 +11,11 @@ The highscore page will also be on the home page on the top right.
 Goodluck!
 
 ## Resources
+Framework: ukit 
+"https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"
 
+Maze api on home page: "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
+
+Animal api on maze page: "https://acnhapi.com/v1/villagers";
 
 ## Deployed 
