@@ -15,12 +15,13 @@ if (localStorage.getItem("highScores") != null) {
   allHighScores = JSON.parse(localStorage.getItem("highScores"));
 }
 
-// after click or submit event
 formContainer.addEventListener("submit", function (event) {
   event.preventDefault();
   var userInput = document.querySelector("#user-name-text");
   var nameHighScore = {
-    score: seconds,
+//  score: seconds, 
+//  seconds reset back to 0 after user finished and loaded up highscore page, fixable?
+    score: JSON.parse(localStorage.getItem("finishedTime")),
     userName: userInput.value,
   };
 
@@ -28,8 +29,6 @@ formContainer.addEventListener("submit", function (event) {
   saveHighScores();
   displayHighScores();
 });
-// line from event.preventDefault to displayhighscores(); will be placed inside a function that will be called after a user
-// completed all the mazes or the time runs out
 
 function saveHighScores() {
   localStorage.setItem("highScores", JSON.stringify(allHighScores));
