@@ -1,40 +1,19 @@
 console.log("hello world");
 
-var highScoreButton = document.querySelector("#highScore-button");
 var highScoreContainer = document.querySelector("#highScore-container");
 var homePageButton = document.querySelector("#go-back-button");
-var formContainer = document.querySelector("#userForm");
 var clearHighscoreButton = document.querySelector("#reset-highScores");
 
 homePageButton.addEventListener("click", function () {
   document.location = "index.html";
 });
 
-var allHighScores = [];
-if (localStorage.getItem("highScores") != null) {
-  allHighScores = JSON.parse(localStorage.getItem("highScores"));
-}
-
-formContainer.addEventListener("submit", function (event) {
-  event.preventDefault();
-  var userInput = document.querySelector("#user-name-text");
-  var nameHighScore = {
-//  score: seconds, 
-//  seconds reset back to 0 after user finished and loaded up highscore page, fixable?
-    score: JSON.parse(localStorage.getItem("finishedTime")),
-    userName: userInput.value,
-  };
-
-  allHighScores.push(nameHighScore);
-  saveHighScores();
-  displayHighScores();
-});
-
-function saveHighScores() {
-  localStorage.setItem("highScores", JSON.stringify(allHighScores));
+function getHighscoresFromLocalStorage() {
+  return JSON.parse(localStorage.getItem("highScores")) || [];
 }
 
 function renderHighScores() {
+  var allHighScores = getHighscoresFromLocalStorage();
   highScoreContainer.innerHTML = "";
 
   for (var i = 0; i < allHighScores.length; i++) {
@@ -49,7 +28,6 @@ function renderHighScores() {
 }
 
 function displayHighScores() {
-  formContainer.setAttribute("style", "display: none");
   renderHighScores();
 }
 
@@ -59,11 +37,5 @@ function clearHighScores() {
     location.reload();
   });
 }
-
 clearHighScores();
-
-// function viewHighScores() {
-//   highScoreButton.addEventListener("click", function () {});
-//   document.location = "highScore.html";
-//   displayHighScores();
-// }
+displayHighScores();
