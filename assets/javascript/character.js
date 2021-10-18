@@ -212,6 +212,7 @@ function downEventHandler(event) {
     if (checkIfFinished(cellArray[0], cellArray[1]) > 0) {
       setTimeout(function() { 
         if(randomMaze() == null){
+          stopTime();
           document.location = "highScore.html";
         } else {
           topStretch = 0;
@@ -250,6 +251,7 @@ function rightEventHandler(event) {
 
       setTimeout(function() { 
         if(randomMaze() == null){
+          stopTime();
           document.location = "highScore.html";
         } else {
           topStretch = 0;
