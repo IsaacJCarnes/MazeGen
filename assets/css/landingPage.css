@@ -16,6 +16,12 @@ header {
   border-radius: 20px;
   border-width: 10px;
 }
+#highScoreDisplay{
+  background-color: black;
+  color: lightgreen;
+  border: 5px solid white;
+  text-align: center;
+}
 
 p {
   font-size: 20px;
