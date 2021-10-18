@@ -1,64 +1,73 @@
 console.log("hello world");
-// var highScoreButton = document.querySelector("#highScore-button");
-// var highScoreContainer = document.querySelector("#highScore-container");
-// var homePageButton = document.querySelector("#go-back-button");
 
-// homePageButton.addEventListener("click", function () {
-//   document.location = "index.html";
-// });
+var highScoreButton = document.querySelector("#highScore-button");
+var highScoreContainer = document.querySelector("#highScore-container");
+var homePageButton = document.querySelector("#go-back-button");
+var formContainer = document.querySelector("#userForm")
 
-// var allHighScores = [];
-// if (localStorage.getItem("highScores") != null) {
-//   allHighScores = JSON.parse(localStorage.getItem("highScores"));
-// }
+homePageButton.addEventListener("click", function () {
+  document.location = "index.html";
+});
 
-// // after click or submit event
-// event.preventDefault;
-// var userInput = document.querySelector("#user-name-text");
-// var nameHighScore = {
-//   // score: value retrieved from mazes complete
-//   userName: userInput.value,
-// };
+var allHighScores = [];
+if (localStorage.getItem("highScores") != null) {
+  allHighScores = JSON.parse(localStorage.getItem("highScores"));
+}
 
-// allHighScores.push(nameHighScore);
-// saveHighScores();
-// displayHighScores();
-// // line 10-20 will be placed inside a function that will be called after a user
-// // completed all the mazes or the time runs out
+// after click or submit event
+formContainer.addEventListener("submit", function(event){
+event.preventDefault();
+var userInput = document.querySelector("#user-name-text");
+var nameHighScore = {
+  score: seconds,
+  userName: userInput.value,
+};
 
-// function saveHighScores() {
-//   localStorage.setItem("highScores", JSON.stringify(allHighScores));
-// }
+allHighScores.push(nameHighScore);
+saveHighScores();
+displayHighScores();
 
-// function renderHighScores() {
-//   highScoreContainer.innerHTML = "";
+})
+// line from event.preventDefault to displayhighscores(); will be placed inside a function that will be called after a user
+// completed all the mazes or the time runs out
 
-//   for (var i = 0; i < allHighScores.length; i++) {
-//     var highScoreName = allHighScores[i].userName;
-//     var highScore = allHighScores[i].score;
+function saveHighScores() {
+  localStorage.setItem("highScores", JSON.stringify(allHighScores));
+}
 
-//     var p = document.createElement("p");
-//     p.setAttribute("data-index", i);
-//     highScoreContainer.appendChild(p);
-//     p.textContent = `${highScoreName} ${highScore}`;
-//   }
-// }
+function renderHighScores() {
+  highScoreContainer.innerHTML = "";
 
-// function displayHighScores() {
-//   // user inner html or something to say "Highscores"
-//   // create container or set container to display
-//   renderHighScores();
-// }
+  for (var i = 0; i < allHighScores.length; i++) {
+    var highScoreName = allHighScores[i].userName;
+    var highScore = allHighScores[i].score;
 
-// function viewHighScores() {
-//   highScoreButton.addEventListener("click", function () {});
-//   // create container or set container to display
-//   displayHighScores();
-// }
+    var p = document.createElement("p");
+    p.setAttribute("data-index", i);
+    highScoreContainer.appendChild(p);
+    p.textContent = `${highScoreName} finished in ${highScore} seconds`;
+  }
+}
 
-// var clearHighscoreButton = document.querySelector("#reset-highScores");
-// function clearHighScores() {
-//   clearHighscoreButton.addEventListener("click", function () {
-//     localStorage.removeItem("highscores");
-//   });
-// }
+function displayHighScores() {
+    formContainer.setAttribute("style", "display: none");
+    
+    renderHighScores();
+  // create container or set container to display
+}
+
+function viewHighScores() {
+  highScoreButton.addEventListener("click", function () {});
+  // create container or set container to display
+  displayHighScores();
+}
+
+var clearHighscoreButton = document.querySelector("#reset-highScores");
+function clearHighScores() {
+  clearHighscoreButton.addEventListener("click", function () {
+    localStorage.removeItem("highScores");
+    location.reload();
+  });
+}
+
+clearHighScores();

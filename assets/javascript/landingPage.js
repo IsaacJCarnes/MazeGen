@@ -32,7 +32,9 @@ var highScoreBtn = document.querySelector("#highScore-button");
 highScoreBtn.addEventListener("click", function () {
   console.log("highscore");
   document.location = "highScore.html"
+  displayHighScores();
 })
+
 giphy();
 function giphy(){
   var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
