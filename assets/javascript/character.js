@@ -368,9 +368,11 @@ function displayForm() {
   formContainer.addEventListener("submit", function (event) {
     event.preventDefault();
     var userInput = document.querySelector("#user-name-text");
+    var foodInput = document.querySelector("#user-food-text");
     var nameHighScore = {
       score: seconds,
       userName: userInput.value,
+      userFood: foodInput.value,
     };
 
     allHighScores.push(nameHighScore);
