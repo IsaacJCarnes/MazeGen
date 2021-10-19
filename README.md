@@ -29,12 +29,15 @@ https://github.com/IsaacJCarnes/MazeGen.git
 
 Adriana - Landing page index.html -style.css of the landing page -fade in of the character using uikit -shaken of the character usuing uikit -readme.md
 
-Phalen: - API calls for landing page gif, random character display, and for food gif on highscores
+Phalen  - API calls for landing page gif, random character display, and for food gif on highscores
         - Character movement functions and keys events, checking if wall or if finished
         - Highscore HTML and JS for displaying page as well as items saved in local storage
         - buttons for changing pages on landingpage and highscores
         - modals on landingpage for instructions and when user completes maze
         - form for filling out information when finished
         - stlying the modals and highscore page
+Isaac   - Maze creation functions (game.js)
+        - CSS for maze styling
+        - Movement buttons for small screens
 
 
