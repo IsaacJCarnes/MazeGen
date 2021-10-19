@@ -100,6 +100,7 @@ function moveCharacterLeft() {
   document.getElementById("playContainer").style.left = leftStretch + "%";
 }
 
+var movedRightBefore = false;
 function moveCharacterRight() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
@@ -117,8 +118,12 @@ function moveCharacterRight() {
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
-  leftStretch = leftStretch - horiChange;
-  document.getElementById("playContainer").style.left = leftStretch + "%";
+  if(movedRightBefore == false){
+    movedRightBefore = true;
+  } else{
+    leftStretch = leftStretch - horiChange;
+    document.getElementById("playContainer").style.left = leftStretch + "%";
+  }
 }
 
 function moveCharacterUp() {
@@ -142,6 +147,7 @@ function moveCharacterUp() {
   document.getElementById("playContainer").style.top = topStretch + "%";
 }
 
+var movedDownBefore = false;
 function moveCharacterDown() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
@@ -159,8 +165,12 @@ function moveCharacterDown() {
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
-  topStretch = topStretch - vertChange;
-  document.getElementById("playContainer").style.top = topStretch + "%";
+  if(movedDownBefore == false){
+    movedDownBefore = true;
+  } else{
+    topStretch = topStretch - vertChange;
+    document.getElementById("playContainer").style.top = topStretch + "%";
+  }
 }
 
 function checkIfWall(x, y) {
