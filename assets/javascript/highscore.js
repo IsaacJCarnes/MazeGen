@@ -41,7 +41,7 @@ function clearHighScores() {
 function foodGif() {
   var allHighScores = getHighscoresFromLocalStorage();
   var favFood = allHighScores[allHighScores.length - 1].userFood;
-  var foodURL = `http://api.giphy.com/v1/gifs/search?q=${favFood}&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc`;
+  var foodURL = `https://api.giphy.com/v1/gifs/search?q=${favFood}&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc`;
   fetch(foodURL)
     .then(function (response) {
       return response.json();

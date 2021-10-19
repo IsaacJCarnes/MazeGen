@@ -37,7 +37,7 @@ highScoreBtn.addEventListener("click", function () {
 
 giphy();
 function giphy(){
-  var giphyURL = "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
+  var giphyURL = "https://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
   fetch(giphyURL)
   .then(function (response) {
       return response.json();
