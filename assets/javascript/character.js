@@ -354,11 +354,10 @@ var modal = document.getElementById("highModal");
 var span = document.getElementsByClassName("close")[0];
 var timeH2 = document.getElementById("finished-time-display");
 
-// var allHighScores = [];
 function getHighscoresFromLocalStorage() {
     return JSON.parse(localStorage.getItem("highScores")) || [];
 }
-// var allHighScores = getHighscoresFromLocalStorage();
+
 
 function displayForm() {
   var allHighScores = getHighscoresFromLocalStorage();
