@@ -10,9 +10,10 @@ The highscore page will also be on the home page on the top right.
 Goodluck!
 
 ## Resources
-Framework: UIkit 
+Framework: 
 [UIkit](https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css)
 
+APIs:
 [GIPHY](https://developers.giphy.com/)
 
 [ACNH](https://acnhapi.com/v1/villagers)
