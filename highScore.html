@@ -8,8 +8,18 @@
     <title>HighScores</title>
   </head>
   <body>
-    <header>
+    <header class="header-container">
+      <img
+        src="assets/images/spotlight.png"
+        alt="spotlight icon"
+        class="spotlight"
+      />
       <h1>Highscores</h1>
+      <img
+        src="assets/images/spotlight2.png"
+        alt="spotlight icon"
+        class="spotlight"
+      />
     </header>
 
     <main class="main-container">
@@ -17,14 +27,17 @@
         <button id="go-back-button">Homepage</button>
         <button id="reset-highScores">Reset Highscores</button>
       </nav>
+
       <section id="highScoreDisplay">
         <ul id="highScore-container"></ul>
       </section>
+
       <section class="message-and-gif">
         <h3 id="congrats"></h3>
         <img src="" alt="Food" id="foodGif" />
         <h3>Go back to the home page if you want to try again!</h3>
       </section>
+      
     </main>
 
     <script src="./assets/javascript/highscore.js"></script>

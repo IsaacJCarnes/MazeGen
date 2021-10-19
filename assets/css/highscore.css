@@ -1,20 +1,37 @@
-body {
-    background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
-}
+
 header {
   padding: 20px;
-  text-align: center;
   color: white;
   font-size: 20px;
-  border-bottom: 2px solid white;
+  /* border-bottom: 2px solid white; */
   /* background-image: url("assets/images/spotlight.jpg"); */
-  /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496) */
+  padding-top: 25px;
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.header-container h1 {
+    bottom: 25px;
+    border-bottom: 2px solid white;
+    /* background: purple; */
+    
+}
+
+.spotlight {
+    max-width: 10%;
+    max-height: auto;
+    margin: 0px 25px 25px 25px;
 }
 
 #highScoreDisplay {
@@ -65,6 +82,7 @@ nav h2 {
   border: 5px solid white;
   background-color: black;
   color: white;
+  border-radius: 25px;
 }
 
 #foodGif {
