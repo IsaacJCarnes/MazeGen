@@ -14,20 +14,21 @@ var timeContainer = document.querySelector("#timeContainer");
 var seconds = 0;
 var timeInterval;
 
-var finishedTime = [];
-if (localStorage.getItem("finshedTime") != null) {
-  finishedTime = JSON.parse(localStorage.getItem("finishedtime"));
-}
-function saveFinishedTime() {
-  localStorage.setItem("finishedTime", JSON.stringify(finishedTime));
-}
+// var finishedTime = [];
+// if (localStorage.getItem("finshedTime") != null) {
+//   finishedTime = JSON.parse(localStorage.getItem("finishedtime"));
+// }
+// function saveFinishedTime() {
+//   localStorage.setItem("finishedTime", JSON.stringify(finishedTime));
+// }
 
 function stopTime() {
   clearInterval(timeInterval);
-  var score = seconds
-  finishedTime.push(score);
-  saveFinishedTime();
+  // var score = seconds
+  // finishedTime.push(score);
+  // saveFinishedTime();
 }
+
 function countUp() {
   timeContainer.textContent = `TIME: ${seconds}`;
   timeInterval = setInterval(function () {
@@ -62,9 +63,13 @@ function placeCharacter() {
   iconImage.setAttribute("alt", "bear icon");
   iconImage.setAttribute("id", "userIcon");
   iconImage.setAttribute("class", "character-icon uk-animation-fade");
-  setTimeout(function(imageElem){
-    imageElem.setAttribute("class", "character-icon");
-  }, 1000, iconImage)
+  setTimeout(
+    function (imageElem) {
+      imageElem.setAttribute("class", "character-icon");
+    },
+    1000,
+    iconImage
+  );
   iconImage.setAttribute("src", "assets/images/loading-circle.png");
   startPoint.appendChild(iconImage);
 }
@@ -86,7 +91,7 @@ function moveCharacterLeft() {
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
   leftStretch = leftStretch + horiChange;
-  document.getElementById("playContainer").style.left = leftStretch + '%';
+  document.getElementById("playContainer").style.left = leftStretch + "%";
 }
 
 function moveCharacterRight() {
@@ -107,7 +112,7 @@ function moveCharacterRight() {
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
   leftStretch = leftStretch - horiChange;
-  document.getElementById("playContainer").style.left = leftStretch + '%';
+  document.getElementById("playContainer").style.left = leftStretch + "%";
 }
 
 function moveCharacterUp() {
@@ -128,7 +133,7 @@ function moveCharacterUp() {
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
   topStretch = topStretch + vertChange;
-  document.getElementById("playContainer").style.top = topStretch + '%';
+  document.getElementById("playContainer").style.top = topStretch + "%";
 }
 
 function moveCharacterDown() {
@@ -149,7 +154,7 @@ function moveCharacterDown() {
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
   topStretch = topStretch - vertChange;
-  document.getElementById("playContainer").style.top = topStretch + '%';
+  document.getElementById("playContainer").style.top = topStretch + "%";
 }
 
 function checkIfWall(x, y) {
@@ -222,20 +227,25 @@ function downEventHandler(event) {
     moveCharacterDown();
     rowPos++;
     if (checkIfFinished(cellArray[0], cellArray[1]) > 0) {
-      setTimeout(function() { 
-        if(randomMaze() == null){
+      setTimeout(function () {
+        if (randomMaze() == null) {
           stopTime();
-          document.location = "highScore.html";
+          displayForm();
+          // document.location = "highScore.html";
           // console.log(seconds) this does stop and log the correct time when a user finishes the last maze
         } else {
           topStretch = 0;
           leftStretch = 0;
-          document.getElementById("playContainer").style.top = 0 + '%';
-          document.getElementById("playContainer").style.left = 0 + '%';
+          document.getElementById("playContainer").style.top = 0 + "%";
+          document.getElementById("playContainer").style.left = 0 + "%";
         }
       }, 500);
-      setTimeout(function() { callCharacter(); }, 500);
-      setTimeout(function() { placeCharacter(); }, 500);
+      setTimeout(function () {
+        callCharacter();
+      }, 500);
+      setTimeout(function () {
+        placeCharacter();
+      }, 500);
     }
   }
 }
@@ -261,21 +271,25 @@ function rightEventHandler(event) {
     moveCharacterRight();
     colPos++;
     if (checkIfFinished(cellArray[0], cellArray[1]) > 0) {
-
-      setTimeout(function() { 
-        if(randomMaze() == null){
+      setTimeout(function () {
+        if (randomMaze() == null) {
           stopTime();
-          document.location = "highScore.html";
+          displayForm();
+          // document.location = "highScore.html"; have this part of on submit function
           // console.log(seconds) logs correct time, how to get this onto highscores
         } else {
           topStretch = 0;
           leftStretch = 0;
-          document.getElementById("playContainer").style.top = 0 + '%';
-          document.getElementById("playContainer").style.left = 0 + '%';
+          document.getElementById("playContainer").style.top = 0 + "%";
+          document.getElementById("playContainer").style.left = 0 + "%";
         }
       }, 500);
-      setTimeout(function() { callCharacter(); }, 500);
-      setTimeout(function() { placeCharacter(); }, 500);
+      setTimeout(function () {
+        callCharacter();
+      }, 500);
+      setTimeout(function () {
+        placeCharacter();
+      }, 500);
     }
   }
 }
@@ -327,13 +341,49 @@ document.addEventListener("keydown", function (event) {
 
 function characterHitWall() {
   iconImage.setAttribute("class", "character-icon uk-animation-shake");
-    setTimeout(function(imageElem){
-    imageElem.setAttribute("class", "character-icon");
-  }, 250, iconImage)
+  setTimeout(
+    function (imageElem) {
+      imageElem.setAttribute("class", "character-icon");
+    },
+    250,
+    iconImage
+  );
+}
+
+var modal = document.getElementById("highModal");
+var span = document.getElementsByClassName("close")[0];
+var timeH2 = document.getElementById("finished-time-display");
+
+function getHighscoresFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("highScores")) || [];
+}
+
+
+function displayForm() {
+  var allHighScores = getHighscoresFromLocalStorage();
+  timeH2.innerHTML = `You finished the mazes in ${seconds} seconds. Enter your name below to save your score`;
+  modal.style.display = "block";
+
+  var formContainer = document.getElementById("userForm")
+  formContainer.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var userInput = document.querySelector("#user-name-text");
+    var nameHighScore = {
+      score: seconds,
+      userName: userInput.value,
+    };
+
+    allHighScores.push(nameHighScore);
+    saveHighScores(allHighScores);
+    // displayHighScores();
+    document.location = "highScore.html";
+  });
+}
+
+function saveHighScores(arr) {
+  localStorage.setItem("highScores", JSON.stringify(arr));
 }
 
 callCharacter();
 placeCharacter();
 countUp();
-
-
