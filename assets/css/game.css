@@ -35,6 +35,7 @@
   max-width: 5%;
   max-height: 5%;
   position: absolute;
+  /* justify-content: center; */
 }
 
 .modal {

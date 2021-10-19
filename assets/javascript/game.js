@@ -83,6 +83,7 @@ function populateGrid(allWalls){ //Makes grid have all black cells
             box.style.width = playContainer.clientWidth/rowNum; //5.25%
             box.style.height = "5.25%";
             box.style.margin = "0px"
+            // box.style.display = "flex"
         }
     }
 }
