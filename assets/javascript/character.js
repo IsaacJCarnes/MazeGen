@@ -2,6 +2,7 @@
 
 var blocks = document.querySelectorAll("div");
 var startPoint = document.getElementById("00 00");
+var endPoint = document.getElementById("18 18");
 var colPos = 0;
 var rowPos = 0;
 var iconImage = document.createElement("img");
@@ -25,9 +26,6 @@ var buttonContainer = document.getElementById("buttonContainer");
 
 function stopTime() {
   clearInterval(timeInterval);
-  // var score = seconds
-  // finishedTime.push(score);
-  // saveFinishedTime();
 }
 
 function countUp() {
@@ -73,6 +71,13 @@ function placeCharacter() {
   );
   iconImage.setAttribute("src", "assets/images/loading-circle.png");
   startPoint.appendChild(iconImage);
+  var endImage = document.createElement("img")
+  endImage.setAttribute("alt", "final icon");
+  endImage.setAttribute("id", "endPointIcon");
+  endImage.setAttribute("class", "character-icon");
+  endImage.setAttribute("src", "assets/images/last-cell.png")
+  endPoint.appendChild(endImage);
+
 }
 
 function moveCharacterLeft() {
@@ -182,7 +187,7 @@ function checkIfFinished(x, y) {
   }
 }
 
-function upEventHandler(event) {
+function upEventHandler() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
   var firstIndex = parseInt(cellArray[1]);
@@ -206,7 +211,7 @@ function upEventHandler(event) {
   }
 }
 
-function downEventHandler(event) {
+function downEventHandler() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
   var firstIndex = parseInt(cellArray[1]);
@@ -250,7 +255,7 @@ function downEventHandler(event) {
     }
   }
 }
-function rightEventHandler(event) {
+function rightEventHandler() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
   var firstIndex = parseInt(cellArray[0]);
@@ -295,7 +300,7 @@ function rightEventHandler(event) {
   }
 }
 
-function leftEventHandler(event) {
+function leftEventHandler() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
   var firstIndex = parseInt(cellArray[0]);
@@ -325,16 +330,16 @@ document.addEventListener("keydown", function (event) {
   if ("wasd".indexOf(key) >= 0) {
     switch (key) {
       case "s":
-        downEventHandler(event);
+        downEventHandler();
         break;
       case "w":
-        upEventHandler(event);
+        upEventHandler();
         break;
       case "d":
-        rightEventHandler(event);
+        rightEventHandler();
         break;
       case "a":
-        leftEventHandler(event);
+        leftEventHandler();
         break;
     }
   }
@@ -388,9 +393,11 @@ function displayForm() {
   formContainer.addEventListener("submit", function (event) {
     event.preventDefault();
     var userInput = document.querySelector("#user-name-text");
+    var foodInput = document.querySelector("#user-food-text");
     var nameHighScore = {
       score: seconds,
       userName: userInput.value,
+      userFood: foodInput.value,
     };
 
     allHighScores.push(nameHighScore);
