@@ -22,3 +22,9 @@ https://github.com/IsaacJCarnes/MazeGen.git
 
 ## Deployed link
 
+
+## Contributors
+
+Adriana - Landing page index.html -style.css of the landing page -fade in of the character using uikit -shaken of the character uikit -readme.md
+
+
