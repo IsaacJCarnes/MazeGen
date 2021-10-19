@@ -11,9 +11,11 @@ Goodluck!
 
 ## Resources
 Framework: 
+
 [UIkit](https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css)
 
 APIs:
+
 [GIPHY](https://developers.giphy.com/)
 
 [ACNH](https://acnhapi.com/v1/villagers)
@@ -35,6 +37,7 @@ Phalen  - API calls for landing page gif, random character display, and for food
         - modals on landingpage for instructions and when user completes maze
         - form for filling out information when finished
         - stlying the modals and highscore page
+
 Isaac   - Maze creation functions (game.js)
         - CSS for maze styling
         - Movement buttons for small screens
