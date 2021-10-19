@@ -24,11 +24,11 @@ header {
 }
 
 p {
-  font-size: 20px;
+  font-size: 15px;
   display: grid;
   place-items: center;
   font-family:Georgia, 'Times New Roman', Times, serif;
-  color: white;
+  color: gray;
 }
 
 button {
@@ -106,3 +106,11 @@ body {
   place-items: center;
 }
 
+.container {
+  color: white; 
+  font-size: 20px;
+}
+.container p {
+  color: white;
+  font-size: 20px;
+}
