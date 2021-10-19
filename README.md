@@ -27,7 +27,11 @@ https://github.com/IsaacJCarnes/MazeGen.git
 
 ## Contributors
 
-Adriana - Landing page index.html -style.css of the landing page -fade in of the character using uikit -shaken of the character usuing uikit -readme.md
+Adriana: - Landing page index.html 
+        - style.css of the landing page 
+        - Start button on land page
+        - fade in and shaken of the character using Uikit
+        - readme.md
 
 Phalen: - API calls for landing page gif, random character display, and for food gif on highscores
         - Character movement functions and keys events, checking if wall or if finished
