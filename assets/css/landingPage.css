@@ -1,9 +1,10 @@
-header {
+header h1 {
   padding: 20px;
   text-align: center;
-  color: black;
-  font-size: 20px;
-  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
+  color: White;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
+  /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
 }
 
 #indexHeader {
@@ -98,12 +99,12 @@ nav {
   border-radius: 25px;
   border-width: 10px;
   background-image: repeating-linear-gradient(
-    rgb(27, 70, 2),
-    rgb(13, 139, 9) 25%
+    rgb(80, 173, 26),
+    rgb(50, 59, 50) 25%
   );
 }
 body {
-  background-color: rgb(5, 61, 8);
+  background: darkgreen;
 }
 
 .mainContainer {
