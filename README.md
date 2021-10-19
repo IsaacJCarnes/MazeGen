@@ -17,6 +17,8 @@ Maze api on home page: "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key
 
 Animal api on maze page: "https://acnhapi.com/v1/villagers";
 
+Fav food giphy: `http://api.giphy.com/v1/gifs/search?q=${favFood}&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc`
+
 ## Github link
 https://github.com/IsaacJCarnes/MazeGen.git
 
