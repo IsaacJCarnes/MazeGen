@@ -16,13 +16,6 @@ var seconds = 0;
 var timeInterval;
 
 var buttonContainer = document.getElementById("buttonContainer");
-// var finishedTime = [];
-// if (localStorage.getItem("finshedTime") != null) {
-//   finishedTime = JSON.parse(localStorage.getItem("finishedtime"));
-// }
-// function saveFinishedTime() {
-//   localStorage.setItem("finishedTime", JSON.stringify(finishedTime));
-// }
 
 function stopTime() {
   clearInterval(timeInterval);
@@ -223,9 +216,7 @@ function downEventHandler() {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
-    // "do nothing"
     characterHitWall();
   } else {
     moveCharacterDown();
@@ -235,8 +226,6 @@ function downEventHandler() {
         if (randomMaze() == null) {
           stopTime();
           displayForm();
-          // document.location = "highScore.html";
-          // console.log(seconds) this does stop and log the correct time when a user finishes the last maze
         } else {
           topStretch = 0;
           leftStretch = 0;
@@ -267,9 +256,7 @@ function rightEventHandler() {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
-    // "do nothing"
     characterHitWall();
   } else {
     moveCharacterRight();
@@ -279,8 +266,6 @@ function rightEventHandler() {
         if (randomMaze() == null) {
           stopTime();
           displayForm();
-          // document.location = "highScore.html"; have this part of on submit function
-          // console.log(seconds) logs correct time, how to get this onto highscores
         } else {
           topStretch = 0;
           leftStretch = 0;
@@ -312,9 +297,7 @@ function leftEventHandler() {
     completedID = backToString;
   }
   cellArray[0] = completedID;
-  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
-    // "do nothing"
     characterHitWall();
   } else {
     moveCharacterLeft();
@@ -400,7 +383,6 @@ function displayForm() {
 
     allHighScores.push(nameHighScore);
     saveHighScores(allHighScores);
-    // displayHighScores();
     document.location = "highScore.html";
   });
 }
