@@ -14,6 +14,7 @@ var timeContainer = document.querySelector("#timeContainer");
 var seconds = 0;
 var timeInterval;
 
+var buttonContainer = document.getElementById("buttonContainer");
 // var finishedTime = [];
 // if (localStorage.getItem("finshedTime") != null) {
 //   finishedTime = JSON.parse(localStorage.getItem("finishedtime"));
@@ -339,6 +340,26 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+function moveFromButton(event) {
+  var element = event.target;
+  if (element.nodeName === "BUTTON") {
+    switch (element.id) {
+      case "buttonDown":
+        downEventHandler(event);
+        break;
+      case "buttonUp":
+        upEventHandler(event);
+        break;
+      case "buttonRight":
+        rightEventHandler(event);
+        break;
+      case "buttonLeft":
+        leftEventHandler(event);
+        break;
+    }
+  }
+}
+
 function characterHitWall() {
   iconImage.setAttribute("class", "character-icon uk-animation-shake");
   setTimeout(
@@ -355,16 +376,15 @@ var span = document.getElementsByClassName("close")[0];
 var timeH2 = document.getElementById("finished-time-display");
 
 function getHighscoresFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("highScores")) || [];
+  return JSON.parse(localStorage.getItem("highScores")) || [];
 }
-
 
 function displayForm() {
   var allHighScores = getHighscoresFromLocalStorage();
   timeH2.innerHTML = `You finished the mazes in ${seconds} seconds. Enter your name below to save your score`;
   modal.style.display = "block";
 
-  var formContainer = document.getElementById("userForm")
+  var formContainer = document.getElementById("userForm");
   formContainer.addEventListener("submit", function (event) {
     event.preventDefault();
     var userInput = document.querySelector("#user-name-text");
