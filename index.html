@@ -16,7 +16,7 @@
     <nav>
         <button id="modal-button">Instructions</button>
   
-        <div id="myModal" class="modal">  
+        <div id="instructionModal" class="modal">  
           <div class="modal-content">
             <span class="close">&times;</span>
               <p>
@@ -36,12 +36,23 @@
         </div>
   
         <button id="highScore-button">Highscores</h1>
+
+          <div id="highScoreModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <section id="highScoreLP">
+                <h2>Previous Highscores</h2>
+                <ul id="hs-modal-container"></ul>
+              </section>
+            </div>
+          </div>
+
       </nav>
     <section>
         <h2 id="indexHeader">Welcome to the Maze Runner!</h2>
         <div class="container">
             <p>
-                <strong>First, view the Instructions tab! After viewing the Instructions tab, click the Start button at own risk!
+                <strong>View the Instructions tab before getting started. Once ready, click the Start button at own risk!
                 Goodluck!</strong>
              </p>
          </div>
