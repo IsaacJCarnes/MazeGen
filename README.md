@@ -11,13 +11,11 @@ Goodluck!
 
 ## Resources
 Framework: UIkit 
-[UIkit]("https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css")
+[UIkit](https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css)
 
-Maze api on home page: "http://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc"
+[GIPHY](https://developers.giphy.com/)
 
-[GIPHY]("https://developers.giphy.com/")
-
-[ACNH]("https://acnhapi.com/v1/villagers")
+[ACNH](https://acnhapi.com/v1/villagers)
 
 ## Github link
 [github](https://github.com/IsaacJCarnes/MazeGen.git)
