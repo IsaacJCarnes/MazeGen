@@ -192,9 +192,7 @@ function upEventHandler() {
     completedID = backToString;
   }
   cellArray[1] = completedID;
-  // var newLocation = cellArray.join(" ");
   if (checkIfWall(cellArray[0], cellArray[1])) {
-    // "do nothing"
     characterHitWall();
   } else {
     moveCharacterUp();
