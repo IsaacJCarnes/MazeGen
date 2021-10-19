@@ -48,9 +48,11 @@ function foodGif() {
     })
     .then(function (data) {
       var foodImg = document.getElementById("foodGif");
-      var foodURL = data.data[0].images.original.url;
+      var foodURL = data.data[1].images.original.url;
       foodImg.setAttribute("src", foodURL);
     });
+    var finishMessage = document.querySelector("#congrats")
+    finishMessage.textContent = `Great job, you finished! Treat yourself with some ${favFood}.`
 }
 foodGif();
 clearHighScores();
