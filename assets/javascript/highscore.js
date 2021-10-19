@@ -47,8 +47,6 @@ function foodGif() {
       return response.json();
     })
     .then(function (data) {
-      //   console.log(data)
-      //   console.log(data.data[0])
       var foodImg = document.getElementById("foodGif");
       var foodURL = data.data[0].images.original.url;
       foodImg.setAttribute("src", foodURL);
