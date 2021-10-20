@@ -150,7 +150,7 @@ Phalen:
 - modals on landingpage for instructions aprevious highscores
 - form modal for filling out information when finished
 - stlying the modals on landing page and after user completed mazes
-- some information in readme
+- Description and Pages in readme
 - Checkout my [Github here](https://github.com/PhalenH)
 
 Isaac:
