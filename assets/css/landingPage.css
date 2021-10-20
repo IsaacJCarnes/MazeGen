@@ -83,8 +83,8 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  margin: 10px;
-  /* background-color: black; */
+  padding: 25px;
+
 }
 
 #start-button-box {
@@ -96,7 +96,7 @@ nav {
 #start-button {
   display: flex;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   color: white;
   border-radius: 25px;
   border-width: 10px;
@@ -110,7 +110,10 @@ body {
   position: absolute;
   width: 100%;
   height: max-content;
-  background-color: rgb(5, 61, 8);
+  /* background-color: rgb(5, 61, 8); */
+}
+.big-container {
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
 }
 
 .mainContainer {
