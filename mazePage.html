@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maze</title>
-    <link rel="stylesheet" href="assets\css\game.css">
+    <link rel="stylesheet" href="assets\css\game.css" />
     <script src="assets\javascript\game.js" defer></script>
     <script src="assets\javascript\character.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css" />
-</head>
-<body>
-    <section id="fullContainer">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"
+    />
+  </head>
+  <body>
+    <section id="wrap">
+      <section id="fullContainer">
         <h2 id="timeContainer"></h2>
         <container id="playContainer"></container>
-    </section>
+      </section>
 
-    <section class="verticalDisplay" id="buttonContainer" onclick="moveFromButton(event)">
+      <section
+        class="verticalDisplay"
+        id="buttonContainer"
+        onclick="moveFromButton(event)"
+      >
         <button id="buttonUp">🠽</button>
         <section class="horizontalDisplay">
-            <button id="buttonLeft">🠼</button>
-            <button id="buttonRight">🠾</button>
+          <button id="buttonLeft">🠼</button>
+          <button id="buttonRight">🠾</button>
         </section>
         <button id="buttonDown">🠿</button>
-    </section>
+      </section>
 
-    <section id="highModal" class="modal">
+      <section id="highModal" class="modal">
         <div class="modal-content">
           <h2>Congrats you finished!</h2>
           <h2 id="finished-time-display"></h2>
-        <form id="userForm">
-          <label for="initial-text">Enter Name:</label>
-          <input
-            type="text"
-            placeholder="Your Name Here"
-            id="user-name-text"
-            name="user-name-text"
-          />
-          <br>
-          <label for="initial-text">Enter Food:</label>
-          <input
-            type="text"
-            placeholder="Favorite Food"
-            id="user-food-text"
-            name="user-food-text"
-          />
-          <br>
-          <input type="submit" value="submit" />
-        </form>
-      </div>
+          <form id="userForm">
+            <label for="initial-text">Enter Name:</label>
+            <input
+              type="text"
+              placeholder="Your Name Here"
+              id="user-name-text"
+              name="user-name-text"
+            />
+            <br />
+            <label for="initial-text">Enter Food:</label>
+            <input
+              type="text"
+              placeholder="Favorite Food"
+              id="user-food-text"
+              name="user-food-text"
+            />
+            <br />
+            <input type="submit" value="submit" />
+          </form>
+        </div>
       </section>
-
-</body>
+    </section>
+  </body>
 </html>
