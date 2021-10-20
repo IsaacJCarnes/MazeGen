@@ -35,7 +35,10 @@ function displayHighScores() {
 function clearHighScores() {
   clearHighscoreButton.addEventListener("click", function () {
     localStorage.removeItem("highScores");
-    location.reload();
+    var highList = document.getElementById("highScore-container")
+    highList.innerHTML = ""
+    var resetMessage = document.querySelector("#congrats")
+    resetMessage.innerHTML = "All Reset!"
   });
 }
 
