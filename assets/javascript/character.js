@@ -64,6 +64,8 @@ function placeCharacter() {
   );
   iconImage.setAttribute("src", "assets/images/loading-circle.png");
   startPoint.appendChild(iconImage);
+  movedRightBefore = false;
+  movedDownBefore = false;
   var endImage = document.createElement("img")
   endImage.setAttribute("alt", "final icon");
   endImage.setAttribute("id", "endPointIcon");
