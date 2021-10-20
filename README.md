@@ -13,7 +13,7 @@ When a user clicks the start button
 Then the user is loaded in as a random animal onto a randomly selected maze and a timer begins
 
 When a user wants to move
-The user will have to use the "W' key to move up, the "A" key to move left, the "S" key to move down, and the "D" key to move right. The user can also use on-screen buttons to move if their screen is smaller than 800 pixels.
+Then user will have to use the "W' key to move up, the "A" key to move left, the "S" key to move down, and the "D" key to move right. The user can also use on-screen buttons to move if their screen is smaller than 800 pixels.
 
 When a user runs into a wall
 Then the user character will shake
@@ -78,7 +78,7 @@ The character and movement used functions and events which:
 - Some of these functions had timeout set so it was delayed such as when a user hits the end point they sit there for half a second rather than not seeing their character hit the end point and immediately be placed on the next maze.
 
 The game JS used functions and events which:
-- 
+- T
 
 ## Highscore Page
 The highscore page includes a header, 2 buttons, a list of previous highscores, and a container with a congratulations message, related gif from user input, and direction to if user wants to go again. The homepage button takes a user back to the starting page and the reset highscores function resets the saved highscores as you would expect. The gif is related to whatever the user put in as their favorite food.
