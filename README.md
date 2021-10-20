@@ -89,7 +89,17 @@ The character and movement used functions and events which:
 The game JS used functions and events which:
 - Parse strings and returns numbers
 
-- 
+- Find distance between cells in maze
+
+- Format strings to conform with ID standard
+
+- Changes cell in maze to represent a path or wall
+
+- Fills page with div elements and adds ID's to them
+
+- Copies maze from an array
+
+- Gets a random array out of an array
 
 ## Highscore Page
 The highscore page includes: 
