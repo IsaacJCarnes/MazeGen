@@ -136,3 +136,7 @@ body {
   font-size: 20px;
   text-align: center;
 }
+
+#mazeGif {
+  padding-bottom: 50px;
+}
