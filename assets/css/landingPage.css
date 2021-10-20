@@ -10,6 +10,7 @@ header {
   text-align: center;
   /* display: flex; */
   margin: auto;
+  margin-top: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   border-radius: 20px;
@@ -80,9 +81,10 @@ button {
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100%;
   margin: 10px;
-  background-color: black;
+  /* background-color: black; */
 }
 
 #start-button-box {
@@ -94,6 +96,7 @@ nav {
 #start-button {
   display: flex;
   margin: auto;
+  margin-top: 30px;
   color: white;
   border-radius: 25px;
   border-width: 10px;
@@ -118,6 +121,7 @@ body {
 .container {
   color: white;
   font-size: 20px;
+  margin-top: 20px;
 }
 .container p {
   color: white;
