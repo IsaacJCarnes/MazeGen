@@ -57,7 +57,7 @@ function cellToWall(positionData){ //Adjusts the cell to be a path cell
     tempCell.dataset.isWall = true;
 }
 
-function populateGrid(allWalls){ //Makes grid have all black cells
+function populateGrid(allWalls){ //Makes grid with div elements and IDs representing cell position
     for(i = 0; i < colNum; i++){
         for(j = 0; j < rowNum; j++){
             var box = document.createElement("div");
@@ -91,12 +91,7 @@ function populateGrid(allWalls){ //Makes grid have all black cells
 
 populateGrid(true);
 
-/*let areaPoint1 = "00 00";
-let areaPoint2 = numberToStringID((colNum-1) + " " + (rowNum-1));
-addWallToArea(areaPoint1, areaPoint2, true);*/
-
-/////////////////////////////////////Presentation Mode
-function mazeFromArray(mazeArray){
+function mazeFromArray(mazeArray){ //Fills maze based on array
     for(i = 0; i < mazeArray.length; i++){
         for(j = 0; j < mazeArray[i].length; j++){
             if(mazeArray[i][j] == 'x'){
@@ -108,7 +103,7 @@ function mazeFromArray(mazeArray){
     }
 }
 
-function randomMaze(){
+function randomMaze(){ //Picks random maze from mazes array
     if(mazes.length > 0){
         let mazeChosen = Math.floor(Math.random() * mazes.length);
         mazeFromArray(mazes[mazeChosen]);
@@ -180,7 +175,7 @@ var fixedMaze3 = [
     ['x', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'x','x', 'x', 'o', 'o', 'o','o', 'o', 'x', 'o'],
     ['x', 'x', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'x', 'o', 'x', 'o','x', 'x', 'x', 'o'],
     ['o', 'o', 'o', 'x', 'o','x', 'x', 'x', 'x', 'x','x', 'o', 'o', 'x', 'o','o', 'o', 'o', 'o'],
-    ['o', 'o', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x'],
+    ['o', 'o', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
     ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o'],
     ['o', 'o', 'o', 'o', 'x','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],    
     ['o', 'x', 'o', 'o', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x'],
