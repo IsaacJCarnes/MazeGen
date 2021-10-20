@@ -5,6 +5,7 @@ header {
   padding: 20px;
   color: white;
   font-size: 20px;
+  width: 100%;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
