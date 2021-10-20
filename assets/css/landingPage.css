@@ -6,6 +6,10 @@ header {
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 
+header h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 #indexHeader {
   text-align: center;
   /* display: flex; */
@@ -30,6 +34,7 @@ button {
   font-size: 20px;
   text-align: center;
   border-radius: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .modal {
@@ -101,8 +106,7 @@ nav {
   border-radius: 25px;
   border-width: 10px;
   background-image: repeating-linear-gradient(
-    rgb(27, 70, 2),
-    rgb(13, 139, 9) 25%
+    gray, black
   );
 }
 
