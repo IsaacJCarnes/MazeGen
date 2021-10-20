@@ -146,11 +146,8 @@ Phalen:
 - API calls for landing page gif, random character display, and for food gif on highscores page
 - Character movement functions and keys events, checking if wall or if finished
 - Highscore HTML, styling, and JS for displaying page, responsiveness, as well as accessing items saved in local storage, 
-- buttons for changing pages and resetting saved items on highscore page
-- modals on landingpage for instructions aprevious highscores
-- form modal for filling out information when finished
-- stlying the modals on landing page and after user completed mazes
-- Description and Pages in readme
+- Modals on landingpage for instructions and previous highscores
+- Form modal for filling out information when finished
 - Checkout my [Github here](https://github.com/PhalenH)
 
 Isaac:
