@@ -18,14 +18,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   position: relative;
-
-  /*width: 2000px;
-  height: 2000px;*/
-  /*right: 63%;
-  bottom: 21%;*/
   width: 400%;
   height: 400%;
-  border: 1px solid whitesmoke;
 }
 
 #fullContainer {
@@ -110,11 +104,6 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-#bounce-back {
-  animation-name: bounce;
-  animation-duration: 1s;
 }
 
 @media only screen and (max-width: 800px) {

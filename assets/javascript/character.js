@@ -338,7 +338,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function moveFromButton(event) {
+function moveFromButton(event) { //Called by buttons visible only when screen width < 800px
   var element = event.target;
   if (element.nodeName === "BUTTON") {
     switch (element.id) {

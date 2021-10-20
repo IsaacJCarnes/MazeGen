@@ -102,7 +102,11 @@ nav {
     rgb(13, 139, 9) 25%
   );
 }
+
 body {
+  position: absolute;
+  width: 100%;
+  height: max-content;
   background-color: rgb(5, 61, 8);
 }
 

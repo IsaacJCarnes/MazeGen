@@ -67,7 +67,7 @@ The game page includes:
 - end point that is marked
 - fixed timer at bottom center of screen which increments by the seconds
 
-The game CSS was used to style the page as well as check the screen width for when the directional buttons will display. The game CSS was also responsible for the shake animation when a user hits a wall.
+The game CSS was used to style the page as well as check the screen width for when the directional buttons will display.
 
 The game javascript was broken into 2 seperate JS files, one for maze generation (game.js) and one for character and movement (character.js). 
 
@@ -87,7 +87,9 @@ The character and movement used functions and events which:
 - Some of these functions had timeout set so it was delayed such as when a user hits the end point they sit there for half a second rather than not seeing their character hit the end point and immediately be placed on the next maze.
 
 The game JS used functions and events which:
-- T
+- Parse strings and returns numbers
+
+- 
 
 ## Highscore Page
 The highscore page includes: 
