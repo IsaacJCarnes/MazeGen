@@ -12,6 +12,7 @@ function getHighscoresFromLocalStorage() {
   return JSON.parse(localStorage.getItem("highScores")) || [];
 }
 
+
 function renderHighScores() {
   var allHighScores = getHighscoresFromLocalStorage();
   highScoreContainer.innerHTML = "";
@@ -52,8 +53,9 @@ function foodGif() {
       foodImg.setAttribute("src", foodURL);
     });
     var finishMessage = document.querySelector("#congrats")
-    finishMessage.textContent = `Great job, you finished! Treat yourself with some ${favFood}.`
+    finishMessage.textContent = `Great job, you finished! Treat yourself to some ${favFood}.`
 }
+
 foodGif();
 clearHighScores();
 displayHighScores();
