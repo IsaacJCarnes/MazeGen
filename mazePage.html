@@ -14,48 +14,50 @@
     />
   </head>
   <body>
-    <section id="fullContainer">
-      <h2 id="timeContainer"></h2>
-      <container id="playContainer"></container>
-    </section>
-
-    <section
-      class="verticalDisplay"
-      id="buttonContainer"
-      onclick="moveFromButton(event)"
-    >
-      <button id="buttonUp">🠽</button>
-      <section class="horizontalDisplay">
-        <button id="buttonLeft">🠼</button>
-        <button id="buttonRight">🠾</button>
+    <section id="wrap">
+      <section id="fullContainer">
+        <h2 id="timeContainer"></h2>
+        <container id="playContainer"></container>
       </section>
-      <button id="buttonDown">🠿</button>
-    </section>
 
-    <section id="highModal" class="modal">
-      <div class="modal-content">
-        <h2>Congrats you finished!</h2>
-        <h2 id="finished-time-display"></h2>
-        <form id="userForm">
-          <label for="initial-text">Enter Name:</label>
-          <input
-            type="text"
-            placeholder="Your Name Here"
-            id="user-name-text"
-            name="user-name-text"
-          />
-          <br />
-          <label for="initial-text">Enter Food:</label>
-          <input
-            type="text"
-            placeholder="Favorite Food"
-            id="user-food-text"
-            name="user-food-text"
-          />
-          <br />
-          <input type="submit" value="submit" />
-        </form>
-      </div>
+      <section
+        class="verticalDisplay"
+        id="buttonContainer"
+        onclick="moveFromButton(event)"
+      >
+        <button id="buttonUp">🠽</button>
+        <section class="horizontalDisplay">
+          <button id="buttonLeft">🠼</button>
+          <button id="buttonRight">🠾</button>
+        </section>
+        <button id="buttonDown">🠿</button>
+      </section>
+
+      <section id="highModal" class="modal">
+        <div class="modal-content">
+          <h2>Congrats you finished!</h2>
+          <h2 id="finished-time-display"></h2>
+          <form id="userForm">
+            <label for="initial-text">Enter Name:</label>
+            <input
+              type="text"
+              placeholder="Your Name Here"
+              id="user-name-text"
+              name="user-name-text"
+            />
+            <br />
+            <label for="initial-text">Enter Food:</label>
+            <input
+              type="text"
+              placeholder="Favorite Food"
+              id="user-food-text"
+              name="user-food-text"
+            />
+            <br />
+            <input type="submit" value="submit" />
+          </form>
+        </div>
+      </section>
     </section>
   </body>
 </html>
