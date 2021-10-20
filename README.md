@@ -90,7 +90,14 @@ The game JS used functions and events which:
 - T
 
 ## Highscore Page
-The highscore page includes a header, 2 buttons, a list of previous highscores, and a container with a congratulations message, related gif from user input, and direction to if user wants to go again. The homepage button takes a user back to the starting page and the reset highscores function resets the saved highscores as you would expect. The gif is related to whatever the user put in as their favorite food.
+The highscore page includes: 
+- a header
+- 2 buttons
+- list of previous highscores
+- container with a congratulations message
+- related gif from user input
+- direction to if user wants to go again. 
+- The homepage button takes a user back to the starting page and the reset highscores function resets the saved highscores as you would expect. The gif is related to whatever the user put in as their favorite food.
 
 The highscore CSS was styled so the last saved highscore is a different color as well as for the layout of the page and coloring of all content.
 
@@ -133,7 +140,7 @@ Adriana:
 - Start button on land page
 - fade in and shaken of the character using Uikit
 - readme.md
-Checkout my Github [here](https://github.com/AdrianaBroadnax)
+- Checkout my [Github here](https://github.com/AdrianaBroadnax)
 
 Phalen:  
 - API calls for landing page gif, random character display, and for food gif on highscores page
@@ -144,12 +151,12 @@ Phalen:
 - form modal for filling out information when finished
 - stlying the modals on landing page and after user completed mazes
 - some information in readme
-- Checkout my Github [here](https://github.com/PhalenH)
+- Checkout my [Github here](https://github.com/PhalenH)
 
 Isaac:
 - Maze creation functions (game.js)
 - CSS for maze styling
 - Movement buttons for small screens
-Checkout my Github [here](https://github.com/IsaacJCarnes)
+- Checkout my [Github here](https://github.com/IsaacJCarnes)
 
 
