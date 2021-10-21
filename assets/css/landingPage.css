@@ -1,9 +1,10 @@
-header {
+header h1 {
   padding: 20px;
   text-align: center;
-  color: black;
-  font-size: 20px;
-  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
+  color: White;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
+  /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
 }
 
 header h1 {
@@ -21,7 +22,7 @@ header h1 {
   border-radius: 20px;
   border-width: 10px;
 }
-
+/* for the body */
 p {
   font-size: 15px;
   display: grid;
@@ -37,7 +38,7 @@ button {
   border-radius: 25px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-
+/* modal the pop ups for instructions and highscore */
 .modal {
   display: none;
   position: fixed;
@@ -77,7 +78,7 @@ button {
   font-size: 28px;
   font-weight: bold;
 }
-
+/* hovering over the buttons */
 .close:hover,
 .close:focus {
   color: #000;
@@ -98,7 +99,8 @@ nav {
   place-items: center;
   padding: 25px;
 }
-
+/* start button styling
+learning background-image */
 #start-button {
   display: flex;
   margin: auto;
@@ -107,6 +109,13 @@ nav {
   border-radius: 25px;
   border-width: 10px;
   background-image: repeating-linear-gradient(
+    rgb(80, 173, 26),
+    rgb(50, 59, 50) 25%
+  );
+}
+/* added body color */
+body {
+  background: darkgreen;
     gray, black
   );
 }
