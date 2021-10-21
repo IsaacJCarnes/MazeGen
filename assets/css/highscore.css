@@ -1,14 +1,18 @@
-
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
 header {
   padding: 20px;
   color: white;
   font-size: 20px;
-  /* border-bottom: 2px solid white; */
-  /* background-image: url("assets/images/spotlight.jpg"); */
+  width: 100%;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
   display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   padding-top: 25px;
@@ -24,7 +28,6 @@ header {
 .header-container h1 {
     bottom: 25px;
     border-bottom: 2px solid white;
-    /* background: purple; */
     
 }
 
@@ -45,7 +48,7 @@ min-width: 100%;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 5px solid white;
+  /* border: 5px solid white; */
   border-radius: 25px;
   max-width: 50%;
 }
@@ -58,12 +61,24 @@ min-width: 100%;
   background-color: lightgreen;
   list-style-position: inside;
 }
+#highScore-container li:last-child {
+    background-color: violet;
+    border: 2px solid white;
+} 
+#highScore-container li:hover {
+    opacity: 0.8;
+}
 
 button {
   padding: 20px;
   font-size: 20px;
   text-align: center;
   border-radius: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+button:hover {
+    transform: scale(1.2);
 }
 
 nav {
@@ -84,6 +99,11 @@ nav h2 {
   color: white;
   border-radius: 25px;
 }
+
+.message-and-gif h3{
+    padding: 5px 10px;
+    font-size: 20px;
+  }
 
 #foodGif {
   margin: 0px 0px;

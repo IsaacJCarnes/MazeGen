@@ -49,6 +49,7 @@ function cellToPath(positionData){ //Adjusts the cell to be a path cell
 function cellToWall(positionData){ //Adjusts the cell to be a path cell
     if(document.getElementById(positionData) === null){
         console.log("broken " + positionData);
+        return;
     }
     let tempCell = document.getElementById(positionData);
     //tempCell.style.background = wallColor;
@@ -56,7 +57,7 @@ function cellToWall(positionData){ //Adjusts the cell to be a path cell
     tempCell.dataset.isWall = true;
 }
 
-function populateGrid(allWalls){ //Makes grid have all black cells
+function populateGrid(allWalls){ //Makes grid with div elements and IDs representing cell position
     for(i = 0; i < colNum; i++){
         for(j = 0; j < rowNum; j++){
             var box = document.createElement("div");
@@ -88,120 +89,9 @@ function populateGrid(allWalls){ //Makes grid have all black cells
     }
 }
 
-function fillCells(startCell, finishCell){
-    //Makes sure we are only filling a straight line
-    if((getCol(startCell) != getCol(finishCell)) && (getRow(startCell) != getRow(finishCell))){
-        return;
-    }
-
-    if(getCol(startCell) == getCol(finishCell)){ //Horizontal line
-        for(i = getRow(startCell); i <= getRow(finishCell); i++){
-            cellToWall(numberToStringID(getCol(startCell) + " " + i));
-        }
-    } else if (getRow(startCell) == getRow(finishCell)){ //Vertical line
-        for(i = getCol(startCell); i <= getCol(finishCell); i++){
-            cellToWall(numberToStringID(i + " " + getRow(startCell)));
-        }
-    }
-}
-
-function randomCellFromArea(topLeft, bottomRight){ //Picks a random cell between two points
-    let distance = cellDistance(topLeft, bottomRight);
-    if(getCol(distance) <= 2 && getRow(distance) <= 2){ //getCol is horizontal distance, getRow is vertical distance
-        console.log("area too small");
-        return;
-    }
-
-    let x = Math.floor(Math.random() * Number((getCol(bottomRight) -1) - (getCol(topLeft) + 1))) + (getCol(topLeft) + 1);
-    let y = Math.floor(Math.random() * Number((getRow(bottomRight) -1) - (getRow(topLeft) + 1))) + (getRow(topLeft) + 1);
-    return numberToStringID(x + " " + y);
-}
-
-function randomCellFromLine(top, bottom, withoutBounds){
-    if(withoutBounds == true){ //Without bounds does not allows the first or last element to be selected
-        if(getCol(top) == getCol(bottom)){
-            let y = Math.floor(Math.random() * Number((getRow(bottom) -1) - (getRow(top) + 1))) + (getRow(top) + 1);
-            return numberToStringID(getCol(top) + " " + y);
-        } else if(getRow(bottom) == getRow(bottom)){
-            let x = Math.floor(Math.random() * Number((getCol(bottom) -1) - (getCol(top) + 1))) + (getCol(top) + 1);
-            return numberToStringID(x + " " + getRow(top));
-        }
-    } else {
-        if(getCol(top) == getCol(bottom)){
-            let y = Math.floor(Math.random() * Number(getRow(bottom) - getRow(top))) + getRow(top);
-            return numberToStringID(getCol(top) + " " + y);
-        } else if(getRow(bottom) == getRow(bottom)){
-            let x = Math.floor(Math.random() * Number(getCol(bottom) - getCol(top))) + getCol(top);
-            return numberToStringID(x + " " + getRow(top));
-        }
-    }
-}
-
-function addWallToArea(topLeft, bottomRight, vertical, lastWindow){ //string id, string id, boolean
-    let dist = cellDistance(topLeft, bottomRight);
-    if(getCol(dist) <= 1 || getRow(dist) <= 1){
-        return;
-    } else if(getCol(dist) < 3 && getRow < 3){
-        return;
-    }
-
-    if(vertical == true){
-        let wallCol = Math.floor(Math.random() * (getCol(bottomRight) - 4)) + getCol(topLeft) + 2; //Chooses between index first col + 2 and last col -2
-        let time = 0;
-        while(lastWindow != null && wallCol == getCol(lastWindow)){
-            wallCol = Math.floor(Math.random() * (getCol(bottomRight) - 4)) + getCol(topLeft) + 2;
-            time++;
-            if(time > 5){
-                break;
-            }
-        }
-        let side1 = numberToStringID(wallCol + " " + getRow(topLeft));
-        let side2 = numberToStringID(wallCol + " " + getRow(bottomRight));
-        fillCells(side1, side2); //Initial wall
-        let windowCell = randomCellFromLine(side1, side2, false);
-        cellToPath(windowCell); //Window
-
-        let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
-        let firstBottomRight =  numberToStringID((getCol(side2) -1) + " " + getRow(side2));
-        addWallToArea(firstTopLeft, firstBottomRight, false, windowCell);
-
-        let secondTopLeft = numberToStringID((getCol(side1) + 1) + " " + getRow(side1));
-        let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
-        addWallToArea(secondTopLeft, secondBottomRight, false, windowCell);
-    } else {
-        let wallRow = Math.floor(Math.random() * (getRow(bottomRight) - 4)) + getRow(topLeft) + 2; //Chooses between index first col + 2 and last col -2
-        let time = 0;
-        while(lastWindow != null && wallRow == getRow(lastWindow)){
-            wallRow = Math.floor(Math.random() * (getRow(bottomRight) - 4)) + getRow(topLeft) + 2; 
-            time++;
-            if(time > 5){
-                break;
-            }
-        }
-        let side1 = numberToStringID(getCol(topLeft) + " " + wallRow);
-        let side2 = numberToStringID(getCol(bottomRight) + " " + wallRow);
-        fillCells(side1, side2); //Initial wall
-        let windowCell = randomCellFromLine(side1, side2, false);
-        cellToPath(windowCell); //Window
-
-        let firstTopLeft = numberToStringID(getCol(topLeft) + " " + getRow(topLeft));
-        let firstBottomRight =  numberToStringID(getCol(side2) + " " + (getRow(side2) - 1));
-        addWallToArea(firstTopLeft, firstBottomRight, true, windowCell);
-
-        let secondTopLeft = numberToStringID(getCol(side1) + " " + (getRow(side1) + 1));
-        let secondBottomRight =  numberToStringID(getCol(bottomRight) + " " + (getRow(bottomRight)));
-        addWallToArea(secondTopLeft, secondBottomRight, true, windowCell);
-    }
-}
-
 populateGrid(true);
 
-/*let areaPoint1 = "00 00";
-let areaPoint2 = numberToStringID((colNum-1) + " " + (rowNum-1));
-addWallToArea(areaPoint1, areaPoint2, true);*/
-
-/////////////////////////////////////Presentation Mode
-function mazeFromArray(mazeArray){
+function mazeFromArray(mazeArray){ //Fills maze based on array
     for(i = 0; i < mazeArray.length; i++){
         for(j = 0; j < mazeArray[i].length; j++){
             if(mazeArray[i][j] == 'x'){
@@ -213,7 +103,7 @@ function mazeFromArray(mazeArray){
     }
 }
 
-function randomMaze(){
+function randomMaze(){ //Picks random maze from mazes array
     if(mazes.length > 0){
         let mazeChosen = Math.floor(Math.random() * mazes.length);
         mazeFromArray(mazes[mazeChosen]);
@@ -270,6 +160,28 @@ var fixedMaze2 = [
     ['o', 'o', 'x', 'x', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'o', 'x', 'o','o', 'o', 'o', 'o']
 ];
 
-var mazes = [fixedMaze1, fixedMaze2];
+var fixedMaze3 = [
+    ['o', 'x', 'o', 'x', 'o','o', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x', 'x','o', 'x', 'x', 'x'],
+    ['o', 'x', 'o', 'x', 'x','x', 'x', 'o', 'o', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o', 'o','o', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'x', 'o', 'x', 'o','o', 'o', 'x', 'x'],
+    ['o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o', 'o','x', 'o', 'o', 'x', 'x','o', 'x', 'x', 'o'],
+    ['o', 'o', 'o', 'o', 'o','o', 'o', 'o', 'o', 'x','o', 'o', 'x', 'x', 'o','o', 'o', 'x', 'o'],
+    ['x', 'x', 'o', 'x', 'x','x', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'x','x', 'o', 'o', 'o'],
+    ['o', 'o', 'o', 'o', 'o','o', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','o', 'o', 'x', 'o'],
+    ['o', 'x', 'x', 'x', 'x','o', 'x', 'x', 'x', 'o','x', 'x', 'x', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'o', 'x', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'o'],
+    ['o', 'x', 'o', 'o', 'o','x', 'x', 'o', 'o', 'o','x', 'o', 'x', 'x', 'x','x', 'x', 'x', 'o'],
+    ['x', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'x','x', 'x', 'o', 'o', 'o','o', 'o', 'x', 'o'],
+    ['x', 'x', 'o', 'o', 'o','o', 'o', 'x', 'o', 'o','o', 'x', 'o', 'x', 'o','x', 'x', 'x', 'o'],
+    ['o', 'o', 'o', 'x', 'o','x', 'x', 'x', 'x', 'x','x', 'o', 'o', 'x', 'o','o', 'o', 'o', 'o'],
+    ['o', 'o', 'x', 'x', 'o','o', 'o', 'o', 'x', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'o'],
+    ['o', 'x', 'o', 'x', 'o','o', 'x', 'o', 'o', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'x', 'o'],
+    ['o', 'o', 'o', 'o', 'x','o', 'x', 'o', 'x', 'o','x', 'o', 'x', 'x', 'o','x', 'o', 'x', 'o'],    
+    ['o', 'x', 'o', 'o', 'o','o', 'x', 'o', 'x', 'o','x', 'o', 'o', 'o', 'o','x', 'o', 'o', 'x'],
+    ['o', 'o', 'o', 'x', 'o','o', 'o', 'x', 'o', 'o','o', 'o', 'x', 'x', 'o','x', 'x', 'o', 'o']
+];
+
+var mazes = [fixedMaze1, fixedMaze2, fixedMaze3];
 var mazesDone = [];
 randomMaze();

@@ -7,10 +7,16 @@ header h1 {
   /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
 }
 
+header h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 25px 0px;
+}
+
 #indexHeader {
   text-align: center;
   /* display: flex; */
   margin: auto;
+  margin-top: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   border-radius: 20px;
@@ -30,6 +36,7 @@ button {
   font-size: 20px;
   text-align: center;
   border-radius: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 /* modal the pop ups for instructions and highscore */
 .modal {
@@ -81,9 +88,10 @@ button {
 
 nav {
   display: flex;
-  justify-content: space-around;
-  margin: 10px;
-  background-color: black;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 25px;
+
 }
 
 #start-button-box {
@@ -96,6 +104,7 @@ learning background-image */
 #start-button {
   display: flex;
   margin: auto;
+  margin-top: 20px;
   color: white;
   border-radius: 25px;
   border-width: 10px;
@@ -107,6 +116,18 @@ learning background-image */
 /* added body color */
 body {
   background: darkgreen;
+    gray, black
+  );
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  /* background-color: rgb(5, 61, 8); */
+}
+.big-container {
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
 }
 
 .mainContainer {
@@ -117,9 +138,14 @@ body {
 .container {
   color: white;
   font-size: 20px;
+  margin-top: 20px;
 }
 .container p {
   color: white;
   font-size: 20px;
   text-align: center;
+}
+
+#mazeGif {
+  padding-bottom: 50px;
 }
