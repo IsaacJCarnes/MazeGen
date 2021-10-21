@@ -4,7 +4,7 @@ header h1 {
   color: White;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 50px;
-  /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 
 header h1 {
@@ -108,15 +108,16 @@ learning background-image */
   color: white;
   border-radius: 25px;
   border-width: 10px;
-  background-image: repeating-linear-gradient(
-    rgb(80, 173, 26),
-    rgb(50, 59, 50) 25%
+  background-image: linear-gradient(
+    rgb(161, 163, 159),
+    rgb(2, 14, 2)
   );
 }
 /* added body color */
 body {
-  background: darkgreen;
-    gray, black
+  background-image: linear-gradient(
+    darkgreen,
+    rgb(2, 14, 2)
   );
 }
 
