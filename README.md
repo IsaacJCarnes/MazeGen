@@ -138,11 +138,12 @@ APIs:
 [ACNH](https://acnhapi.com/v1/villagers)
 - This API was used to generate a random animal character that a user will play as when playing Maze Runner
 
-## Github link
-Click here to access the Github Repo: [Github](https://github.com/IsaacJCarnes/MazeGen.git)
+## Links and Screenshot
+- Click here to access the Github Repo: [Github](https://github.com/IsaacJCarnes/MazeGen.git)
 
-## Deployed link
-Click here to access the deployed link: [Github pages](https://isaacjcarnes.github.io/MazeGen/)
+- Click here to access the deployed link: [Github pages](https://isaacjcarnes.github.io/MazeGen/)
+
+![Landing Page for Maze Runner](./assets/images/final-screenshot.png)
 
 ## Contributors
 
