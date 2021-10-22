@@ -155,11 +155,12 @@ Adriana:
 - Checkout my [Github here](https://github.com/AdrianaBroadnax)
 
 Phalen:  
-- API calls for landing page gif, random character display, and for food gif on highscores page
+- API calls for landing page gif, characters and character display, and food gif on highscores page
 - Character movement functions and keys events, checking if wall or if finished
 - Highscore HTML, styling, and JS for displaying page, responsiveness, as well as accessing items saved in local storage, 
 - Modals on landingpage for instructions and previous highscores
 - Form modal for filling out information when finished
+- select option on landing page and functions to save and get that selected option
 - Checkout my [Github here](https://github.com/PhalenH)
 
 Isaac:
