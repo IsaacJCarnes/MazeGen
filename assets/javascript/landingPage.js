@@ -83,4 +83,10 @@ function renderHighScores() {
 }
 // modal which getss highscores and assigns them to list items through a for loop 
 
+function saveAnimal() {
+  var character = document.getElementById("animal").value
+  localStorage.setItem("animal", character);
+} 
+// saved animal selection from menu to local storafge to be accessed in character js 
+
 renderHighScores();

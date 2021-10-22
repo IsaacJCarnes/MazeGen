@@ -1,27 +1,28 @@
 header h1 {
   padding: 20px;
   text-align: center;
-  color: White;
+  color: black;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 50px;
-  /* background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1)); */
+  background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 
 header h1 {
   font-family: Georgia, "Times New Roman", Times, serif;
-  padding: 25px 0px;
+  padding: 50px 0px;
+  margin-bottom: 0px;
 }
 
 #indexHeader {
   text-align: center;
-  /* display: flex; */
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   border-radius: 20px;
   border-width: 10px;
 }
+
 /* for the body */
 p {
   font-size: 15px;
@@ -38,6 +39,7 @@ button {
   border-radius: 25px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 /* modal the pop ups for instructions and highscore */
 .modal {
   display: none;
@@ -51,6 +53,7 @@ button {
   width: 100%;
   height: 100%;
 }
+
 .modal-content {
   display: flex;
   flex-flow: column;
@@ -66,6 +69,7 @@ button {
 #modal-list li {
   padding: 5px;
 }
+
 #hs-modal-container li {
   text-align: left;
   padding: 10px;
@@ -73,11 +77,13 @@ button {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: gray;
 }
+
 .close {
   color: #aaaaaa;
   font-size: 28px;
   font-weight: bold;
 }
+
 /* hovering over the buttons */
 .close:hover,
 .close:focus {
@@ -90,8 +96,8 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  padding: 25px;
-
+  padding-top: 25px;
+  padding-bottom: 15px;
 }
 
 #start-button-box {
@@ -99,35 +105,27 @@ nav {
   place-items: center;
   padding: 25px;
 }
+
 /* start button styling
 learning background-image */
 #start-button {
   display: flex;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 30px;
   color: white;
   border-radius: 25px;
   border-width: 10px;
-  background-image: repeating-linear-gradient(
-    rgb(80, 173, 26),
-    rgb(50, 59, 50) 25%
-  );
-}
-/* added body color */
-body {
-  background: darkgreen;
-    gray, black
-  );
+  background-image: repeating-linear-gradient(gray, black);
 }
 
 body {
   position: absolute;
   width: 100%;
   height: max-content;
-  /* background-color: rgb(5, 61, 8); */
 }
+
 .big-container {
-  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496);
 }
 
 .mainContainer {
@@ -138,14 +136,44 @@ body {
 .container {
   color: white;
   font-size: 20px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 0% 25%;
+  padding-top: 10px;
 }
+
 .container p {
   color: white;
   font-size: 20px;
   text-align: center;
+  line-height: 35px;
+  letter-spacing: .5px;
 }
 
 #mazeGif {
   padding-bottom: 50px;
 }
+
+#select-container {
+  display: flex;
+  justify-content: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  font-size: 20px;
+  /* background-color: violet; */
+
+}
+
+#animal {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-left: 5px;
+  color: black;
+  /* color: rgb(117, 231, 117); */
+  text-align: center;
+}
+
+/* #select-container select {
+  display: none;
+} */

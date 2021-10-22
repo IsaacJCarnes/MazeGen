@@ -39,23 +39,37 @@ function callCharacter() {
       return response.json();
     })
     .then(function (data) {
-      bearIcon = data.bea02.icon_uri;
-      tigerIcon = data.tig04.icon_uri;
-      wolfIcon = data.wol04.icon_uri;
-      frogIcon = data.flg03.icon_uri;
-      goatIcon = data.goa02.icon_uri;
-
-      icon = [bearIcon, tigerIcon, wolfIcon, frogIcon, goatIcon];
-      iconImage.setAttribute(
-        "src",
-        icon[Math.floor(Math.random() * icon.length)]
-      );
+      let bearIcon = data.bea02.icon_uri;
+      let tigerIcon = data.tig04.icon_uri;
+      let wolfIcon = data.wol04.icon_uri;
+      let frogIcon = data.flg03.icon_uri;
+      let goatIcon = data.goa02.icon_uri;
+      let selectedAnimal = localStorage.getItem("animal")
+      let icon = ""
+      switch (true) {
+        case selectedAnimal === "bear":
+          icon = bearIcon
+          break;
+          case selectedAnimal === "tiger":
+          icon = tigerIcon
+          break;
+          case selectedAnimal === "wolf":
+          icon = wolfIcon
+          break;
+          case selectedAnimal === "frog":
+          icon = frogIcon
+          break;
+          case selectedAnimal === "goat":
+          icon = goatIcon
+          break;
+      }
+      iconImage.setAttribute("src", icon);
     });
 }
-// api call get characters and then assigns character randomly to iconImage
+// api call get characters and then assigns character to icon image based on user selection
 
 function placeCharacter() {
-  iconImage.setAttribute("alt", "bear icon");
+  iconImage.setAttribute("alt", "animal icon");
   iconImage.setAttribute("id", "userIcon");
   iconImage.setAttribute("class", "character-icon uk-animation-fade");
   setTimeout(
