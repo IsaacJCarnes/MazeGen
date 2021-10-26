@@ -44,23 +44,23 @@ function callCharacter() {
       let wolfIcon = data.wol04.icon_uri;
       let frogIcon = data.flg03.icon_uri;
       let goatIcon = data.goa02.icon_uri;
-      let selectedAnimal = localStorage.getItem("animal")
-      let icon = ""
+      let selectedAnimal = localStorage.getItem("animal");
+      let icon = "";
       switch (true) {
         case selectedAnimal === "bear":
-          icon = bearIcon
+          icon = bearIcon;
           break;
-          case selectedAnimal === "tiger":
-          icon = tigerIcon
+        case selectedAnimal === "tiger":
+          icon = tigerIcon;
           break;
-          case selectedAnimal === "wolf":
-          icon = wolfIcon
+        case selectedAnimal === "wolf":
+          icon = wolfIcon;
           break;
-          case selectedAnimal === "frog":
-          icon = frogIcon
+        case selectedAnimal === "frog":
+          icon = frogIcon;
           break;
-          case selectedAnimal === "goat":
-          icon = goatIcon
+        case selectedAnimal === "goat":
+          icon = goatIcon;
           break;
       }
       iconImage.setAttribute("src", icon);
