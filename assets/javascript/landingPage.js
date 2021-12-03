@@ -55,7 +55,7 @@ function giphy() {
     })
     .then(function (data) {
       var gifImg = document.getElementById("mazeGif");
-      var gifURL = data.data[1].images.original.url;
+      var gifURL = data.data[0].images.original.url;
       gifImg.setAttribute("src", gifURL);
     });
 }
