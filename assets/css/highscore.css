@@ -21,6 +21,7 @@ body {
   font-size: 20px;
   width: 100%;
   height: 20vh;
+  overflow-x: hidden;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
@@ -135,7 +136,10 @@ nav {
 
 @media screen and (max-width: 450px){
   .message-and-gif{
-    width: 50vw;
-    height: 60vh;
+    width: 80vw;
+    height: 40vh;
+  }
+  .message-and-gif h3 {
+    font-size: 1.05rem;
   }
 }
