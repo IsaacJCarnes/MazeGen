@@ -17,7 +17,8 @@ header {
   max-width: 95vw;
   text-align: center;
   color: black;
-  font-size: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 
@@ -33,6 +34,7 @@ header h1{
   color: white;
 }
 
+/* for the body */
 p {
   font-size: 15px;
   display: grid;
@@ -46,8 +48,10 @@ button {
   font-size: 20px;
   text-align: center;
   border-radius: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+/* modal the pop ups for instructions and highscore */
 .modal {
   display: none;
   position: fixed;
@@ -60,6 +64,7 @@ button {
   width: 100%;
   height: 100%;
 }
+
 .modal-content {
   display: flex;
   flex-flow: column;
@@ -76,6 +81,7 @@ button {
 #modal-list li {
   padding: 5px;
 }
+
 #hs-modal-container li {
   text-align: left;
   padding: 10px;
@@ -83,12 +89,14 @@ button {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: gray;
 }
+
 .close {
   color: #aaaaaa;
   font-size: 28px;
   font-weight: bold;
 }
 
+/* hovering over the buttons */
 .close:hover,
 .close:focus {
   color: #000;
@@ -122,10 +130,7 @@ nav {
   color: white;
   border-radius: 25px;
   border-width: 10px;
-  background-image: repeating-linear-gradient(
-    rgb(27, 70, 2),
-    rgb(13, 139, 9) 25%
-  );
+  background-image: repeating-linear-gradient(gray, black);
 }
 
 .big-container {
@@ -147,6 +152,32 @@ nav {
   font-size: 20px;
   margin-top: 20px;
   font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+  letter-spacing: .5px;
+}
+
+#mazeGif {
+  padding-bottom: 50px;
+}
+
+#select-container {
+  display: flex;
+  justify-content: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  font-size: 20px;
+  /* background-color: violet; */
+
+}
+
+#animal {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-left: 5px;
+  color: black;
+  /* color: rgb(117, 231, 117); */
   text-align: center;
 }
 

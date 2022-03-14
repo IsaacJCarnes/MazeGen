@@ -10,9 +10,8 @@ var span2 = document.getElementsByClassName("close")[1];
 var maze = document.getElementsByClassName("");
 var mainContainer = document.querySelector(".mainContainer");
 var giphyLink = document.querySelector("#giphy-link");
-// var giphyLink = document.querySelector("#giphy-link")
 
-// When the user clicks the button, open the modal
+// When the user clicks the button, open the modals
 instructionBtn.addEventListener("click", function () {
   instructionModal.style.display = "block";
 });
@@ -21,7 +20,7 @@ hsBtn.addEventListener("click", function () {
   hsModal.style.display = "block";
 });
 
-// When the user clicks on <span> (x), close the modal
+// When the user clicks on <span> (x), close the modals
 span.addEventListener("click", function () {
   instructionModal.style.display = "none";
 });
@@ -43,27 +42,14 @@ const playContainer = document.getElementById("playContainer");
 startBtn.addEventListener("click", function () {
   console.log("start");
   document.location = "mazePage.html";
-  // const playContainer = ["#playContainer"]
+  // takes user to maze page
 });
-
-giphy();
-function giphy() {
-  var giphyURL =
-    "https://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc";
-  fetch(giphyURL)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      var gifImg = document.getElementById("mazeGif");
-      var gifURL = data.data[1].images.original.url;
-      gifImg.setAttribute("src", gifURL);
-    });
-}
 
 function getHighscoresFromLocalStorage() {
   return JSON.parse(localStorage.getItem("highScores")) || [];
 }
+// retrieves highscores from local storage
+
 var highScoreModalContainer = document.querySelector("#hs-modal-container");
 function renderHighScores() {
   var allHighScores = getHighscoresFromLocalStorage();
@@ -79,4 +65,12 @@ function renderHighScores() {
     li.textContent = `${highScoreName}: ${highScore} seconds`;
   }
 }
+// modal which getss highscores and assigns them to list items through a for loop 
+
+function saveAnimal() {
+  var character = document.getElementById("animal").value
+  localStorage.setItem("animal", character);
+} 
+// saved animal selection from menu to local storafge to be accessed in character js 
+
 renderHighScores();

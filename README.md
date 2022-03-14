@@ -138,28 +138,30 @@ APIs:
 [ACNH](https://acnhapi.com/v1/villagers)
 - This API was used to generate a random animal character that a user will play as when playing Maze Runner
 
-## Github link
-Click here to access the Github Repo: [Github](https://github.com/IsaacJCarnes/MazeGen.git)
+## Links and Screenshot
+- Click here to access the Github Repo: [Github](https://github.com/IsaacJCarnes/MazeGen.git)
 
-## Deployed link
-Click here to access the deployed link: [Github pages](https://isaacjcarnes.github.io/MazeGen/)
+- Click here to access the deployed link: [Webpage](https://isaacjcarnes.github.io/MazeGen/)
+
+![Landing Page for Maze Runner](./assets/images/final-screenshot.png)
 
 ## Contributors
 
 Adriana: 
 - Landing page index.html 
-- style.css of the landing page 
+- Style.css of the landing page 
 - Start button on land page
-- fade in and shaken of the character using Uikit
-- readme.md
+- Fade in and shaken of the character using Uikit
+- Readme.md
 - Checkout my [Github here](https://github.com/AdrianaBroadnax)
 
 Phalen:  
-- API calls for landing page gif, random character display, and for food gif on highscores page
+- API calls for landing page gif, characters and character display, and food gif on highscores page
 - Character movement functions and keys events, checking if wall or if finished
 - Highscore HTML, styling, and JS for displaying page, responsiveness, as well as accessing items saved in local storage, 
 - Modals on landingpage for instructions and previous highscores
 - Form modal for filling out information when finished
+- Select option on landing page and functions to save and get that selected option
 - Checkout my [Github here](https://github.com/PhalenH)
 
 Isaac:
