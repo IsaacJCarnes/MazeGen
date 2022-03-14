@@ -1,60 +1,73 @@
-body {
-    font-family: Georgia, "Times New Roman", Times, serif;
+html{
+  height: 100vh;
+  width: 100vw;
 }
-header {
-  padding: 20px;
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0px;
+  background-color: black;
+}
+.header-container {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 20px;
   width: 100%;
+  height: 20vh;
+  overflow-x: hidden;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
+  align-self: center;
   display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: relative;
   flex-direction: column;
   align-items: center;
   padding-top: 25px;
-  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
-}
-
-.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  width: 100%;
+  min-height: 80vh;
+  height: 100%;
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496);
 }
 
 .header-container h1 {
-    bottom: 25px;
-    border-bottom: 2px solid white;
-    
+  bottom: 25px;
+  border-bottom: 2px solid white;
 }
 
 .spotlight {
-    max-width: 10%;
-    max-height: auto;
-    margin: 0px 25px 25px 25px;
+  max-width: 10%;
+  margin: 10px 25px 25px 25px;
 }
 
 #highScoreDisplay {
-display: flex;
-justify-content: center;
-min-width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  width: 90%;
 }
 
 #highScore-container {
   display: flex;
+  width: 80vw;
+  height: 15vh;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
   /* border: 5px solid white; */
   border-radius: 25px;
-  max-width: 50%;
 }
 #highScore-container li {
   padding: 5px;
   margin: 10px;
+  height: fit-content;
   border-radius: 25px;
   list-style-type: circle;
   color: black;
@@ -62,11 +75,11 @@ min-width: 100%;
   list-style-position: inside;
 }
 #highScore-container li:last-child {
-    background-color: violet;
-    border: 2px solid white;
-} 
+  background-color: violet;
+  border: 2px solid white;
+}
 #highScore-container li:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 button {
@@ -78,21 +91,23 @@ button {
 }
 
 button:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 nav {
+  align-self: center;
   display: flex;
-  min-width: 100%;
+  min-width: 90%;
   justify-content: space-evenly;
   margin: 10px;
 }
-nav h2 {
-    color: white;
-}
 
 .message-and-gif {
+  display: flex;
+  flex-direction: column;
   margin: 25px;
+  width: 50vw;
+  height: 40vh;
   text-align: center;
   border: 5px solid white;
   background-color: black;
@@ -100,13 +115,31 @@ nav h2 {
   border-radius: 25px;
 }
 
-.message-and-gif h3{
-    padding: 5px 10px;
-    font-size: 20px;
-  }
+.message-and-gif h3 {
+  align-self: center;
+  padding: 5px 10px;
+  font-size: 20px;
+}
 
 #foodGif {
+  align-self: center;
+  justify-self: center;
   margin: 0px 0px;
-  max-width: 100%;
-  max-height: auto;
+  width: 100%;
+}
+
+@media (orientation: landscape){
+  body{
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .message-and-gif{
+    width: 80vw;
+    height: 40vh;
+  }
+  .message-and-gif h3 {
+    font-size: 1.05rem;
+  }
 }

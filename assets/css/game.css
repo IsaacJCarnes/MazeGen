@@ -4,6 +4,7 @@
 
 .horizontalDisplay {
   flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 #wrap{
@@ -42,6 +43,7 @@
 }
 
 #buttonContainer {
+  touch-action: manipulation;
   position: fixed;
   display: none;
   align-items: center;
