@@ -1,20 +1,36 @@
+body {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: black;
+  /* background-color: rgb(5, 61, 8); */
+}
+
 header {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 18vh;
   padding: 20px;
+  max-width: 95vw;
   text-align: center;
   color: black;
   font-size: 20px;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 
+header h1{
+  align-self: center;
+  text-shadow: -1px 0 grey, 0 1px rgb(177, 177, 177), 1px 0 rgb(185, 185, 185), 0 -1px rgb(151, 149, 149);
+}
+
 #indexHeader {
   text-align: center;
-  /* display: flex; */
-  margin: auto;
   margin-top: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
-  border-radius: 20px;
-  border-width: 10px;
 }
 
 p {
@@ -54,6 +70,7 @@ button {
   padding: 20px;
   border: 3px solid #888;
   width: 50%;
+  max-height: 95vh;
 }
 
 #modal-list li {
@@ -79,24 +96,29 @@ button {
   cursor: pointer;
 }
 
-nav {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  padding: 25px;
-
+.smallInp{
+  display: none;
 }
 
-#start-button-box {
-  display: grid;
-  place-items: center;
+.largeInp{
+  display: inherit;
+}
+
+nav {
+  width: 80vw;
+  align-self: center;
+  display: flex;
+  justify-content: space-evenly;
   padding: 25px;
+
 }
 
 #start-button {
-  display: flex;
-  margin: auto;
+  position: relative;
+  align-self: center;
   margin-top: 20px;
+  margin-bottom: 5px;
+  width: 105px;
   color: white;
   border-radius: 25px;
   border-width: 10px;
@@ -106,28 +128,69 @@ nav {
   );
 }
 
-body {
-  position: absolute;
-  width: 100%;
-  height: max-content;
-  /* background-color: rgb(5, 61, 8); */
-}
 .big-container {
-  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496)
+  background: linear-gradient(black, darkgreen, green, lightgreen, #b6e496);
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+}
+.gifContainer {
+  align-self: center;
+  width: 40vw;
+  height: 25vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-.mainContainer {
-  display: grid;
-  place-items: center;
-}
-
-.container {
+.intro {
   color: white;
   font-size: 20px;
   margin-top: 20px;
-}
-.container p {
-  color: white;
   font-size: 20px;
   text-align: center;
+}
+
+@media (orientation: landscape){
+  body{
+    overflow-y: auto;
+  }
+  .big-container{
+    height: fit-content;
+  }
+}
+
+
+@media screen and (max-width: 450px){
+  .customBtn{
+    font-size: 1rem;
+  }
+
+  .intro{
+    font-size: 1rem;
+  }
+
+  .modal-content{
+    width: 60vw;
+    font-size: 0.6rem;
+  }
+  .modal-content p{
+    margin-top: 2px;
+  }
+  .smallInp{
+    display: inherit;
+  }
+  .largeInp{
+    display: none;
+  }
+  #indexHeader{
+    margin-top: -13px;
+    margin-bottom: -9px;
+    font-size: 1.5rem;
+  }
+  #start-button{
+    margin-top: -9px;
+  }
+  .gifContainer{
+    width: 80vw;
+  }
 }
