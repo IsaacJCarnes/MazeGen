@@ -45,22 +45,6 @@ startBtn.addEventListener("click", function () {
   // takes user to maze page
 });
 
-giphy();
-function giphy() {
-  var giphyURL =
-    "https://api.giphy.com/v1/gifs/search?q=green+maze&api_key=Y7ydLBRXvMZyDQOIVNwjMcWyI3mJmThc";
-  fetch(giphyURL)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      var gifImg = document.getElementById("mazeGif");
-      var gifURL = data.data[0].images.original.url;
-      gifImg.setAttribute("src", gifURL);
-    });
-}
-// calls api and assigns it to img elements
-
 function getHighscoresFromLocalStorage() {
   return JSON.parse(localStorage.getItem("highScores")) || [];
 }

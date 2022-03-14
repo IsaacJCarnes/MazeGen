@@ -68,6 +68,8 @@
   max-width: 5%;
   max-height: 5%;
   position: absolute;
+  justify-self: center;
+  align-self: center;
   /* justify-content: center; */
 }
 
@@ -106,7 +108,14 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px){
+  #buttonContainer {
+    display: flex;
+  }
+}
+
+
+@media only screen and (max-height: 800px){
   #buttonContainer {
     display: flex;
   }

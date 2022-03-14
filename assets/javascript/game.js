@@ -83,8 +83,9 @@ function populateGrid(allWalls){ //Makes grid with div elements and IDs represen
             box.style.color = "white";
             box.style.width = playContainer.clientWidth/rowNum; //5.25%
             box.style.height = "5.25%";
-            box.style.margin = "0px"
-            // box.style.display = "flex"
+            box.style.margin = "0px";
+            box.style.display = "flex";
+            box.style.justifyContent = "center";
         }
     }
 }

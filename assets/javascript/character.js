@@ -20,7 +20,6 @@ var buttonContainer = document.getElementById("buttonContainer");
 function stopTime() {
   clearInterval(timeInterval);
 }
-// stop countup
 
 function countUp() {
   timeContainer.textContent = `TIME: ${seconds}`;
@@ -29,7 +28,6 @@ function countUp() {
     timeContainer.textContent = `TIME: ${seconds}`;
   }, 1000);
 }
-// increments time from 0 every second
 
 function callCharacter() {
   var characterUrl = "https://acnhapi.com/v1/villagers";
@@ -39,37 +37,22 @@ function callCharacter() {
       return response.json();
     })
     .then(function (data) {
-      let bearIcon = data.bea02.icon_uri;
-      let tigerIcon = data.tig04.icon_uri;
-      let wolfIcon = data.wol04.icon_uri;
-      let frogIcon = data.flg03.icon_uri;
-      let goatIcon = data.goa02.icon_uri;
-      let selectedAnimal = localStorage.getItem("animal");
-      let icon = "";
-      switch (true) {
-        case selectedAnimal === "bear":
-          icon = bearIcon;
-          break;
-        case selectedAnimal === "tiger":
-          icon = tigerIcon;
-          break;
-        case selectedAnimal === "wolf":
-          icon = wolfIcon;
-          break;
-        case selectedAnimal === "frog":
-          icon = frogIcon;
-          break;
-        case selectedAnimal === "goat":
-          icon = goatIcon;
-          break;
-      }
-      iconImage.setAttribute("src", icon);
+      bearIcon = data.bea02.icon_uri;
+      tigerIcon = data.tig04.icon_uri;
+      wolfIcon = data.wol04.icon_uri;
+      frogIcon = data.flg03.icon_uri;
+      goatIcon = data.goa02.icon_uri;
+
+      icon = [bearIcon, tigerIcon, wolfIcon, frogIcon, goatIcon];
+      iconImage.setAttribute(
+        "src",
+        icon[Math.floor(Math.random() * icon.length)]
+      );
     });
 }
-// api call get characters and then assigns character to icon image based on user selection
 
 function placeCharacter() {
-  iconImage.setAttribute("alt", "animal icon");
+  iconImage.setAttribute("alt", "bear icon");
   iconImage.setAttribute("id", "userIcon");
   iconImage.setAttribute("class", "character-icon uk-animation-fade");
   setTimeout(
@@ -83,14 +66,14 @@ function placeCharacter() {
   startPoint.appendChild(iconImage);
   movedRightBefore = false;
   movedDownBefore = false;
-  var endImage = document.createElement("img");
+  var endImage = document.createElement("img")
   endImage.setAttribute("alt", "final icon");
   endImage.setAttribute("id", "endPointIcon");
   endImage.setAttribute("class", "character-icon");
-  endImage.setAttribute("src", "assets/images/last-cell.png");
+  endImage.setAttribute("src", "assets/images/last-cell.png")
   endPoint.appendChild(endImage);
+
 }
-// places character on startpoint with fade in, adds image on start/end point
 
 function moveCharacterLeft() {
   var cellID = iconImage.parentNode.id;
@@ -111,7 +94,6 @@ function moveCharacterLeft() {
   leftStretch = leftStretch + horiChange;
   document.getElementById("playContainer").style.left = leftStretch + "%";
 }
-// takes img element's current div location ID, changess ID which assigns it to the div element to the left of the character
 
 var movedRightBefore = false;
 function moveCharacterRight() {
@@ -131,14 +113,13 @@ function moveCharacterRight() {
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
-  if (movedRightBefore == false) {
+  if(movedRightBefore == false){
     movedRightBefore = true;
-  } else {
+  } else{
     leftStretch = leftStretch - horiChange;
     document.getElementById("playContainer").style.left = leftStretch + "%";
   }
 }
-// takes img element's current div location ID, changess ID which assigns it to the div element to the right of the character. Also won't move screen on first move to right.
 
 function moveCharacterUp() {
   var cellID = iconImage.parentNode.id;
@@ -160,7 +141,6 @@ function moveCharacterUp() {
   topStretch = topStretch + vertChange;
   document.getElementById("playContainer").style.top = topStretch + "%";
 }
-// takes img element's current div location ID, changess ID which assigns it to the div element above the character.
 
 var movedDownBefore = false;
 function moveCharacterDown() {
@@ -180,14 +160,13 @@ function moveCharacterDown() {
   var newLocation = cellArray.join(" ");
   document.getElementById(`${newLocation}`).appendChild(iconImage);
 
-  if (movedDownBefore == false) {
+  if(movedDownBefore == false){
     movedDownBefore = true;
-  } else {
+  } else{
     topStretch = topStretch - vertChange;
     document.getElementById("playContainer").style.top = topStretch + "%";
   }
 }
-// takes img element's current div location ID, changess ID which assigns it to the div element below the character. Also won't move screen on first move down.
 
 function checkIfWall(x, y) {
   var cellArray = [x, y];
@@ -197,7 +176,6 @@ function checkIfWall(x, y) {
     "true"
   );
 }
-// function to check if new location is a wall
 
 function checkIfFinished(x, y) {
   var cellArray = [x, y];
@@ -213,7 +191,6 @@ function checkIfFinished(x, y) {
     return false;
   }
 }
-// function to check if character is on bottom right div element
 
 function upEventHandler() {
   var cellID = iconImage.parentNode.id;
@@ -236,7 +213,6 @@ function upEventHandler() {
     rowPos--;
   }
 }
-//handler for logic of event
 
 function downEventHandler() {
   var cellID = iconImage.parentNode.id;
@@ -278,8 +254,6 @@ function downEventHandler() {
     }
   }
 }
-//handler for logic of event, with additional code for checking if finished with timeout so character can be seen moving to final spot on maze
-
 function rightEventHandler() {
   var cellID = iconImage.parentNode.id;
   var cellArray = cellID.split(" ");
@@ -320,7 +294,6 @@ function rightEventHandler() {
     }
   }
 }
-//handler for logic of event, with additional code for checking if finished with timeout so character can be seen moving to final spot on maze
 
 function leftEventHandler() {
   var cellID = iconImage.parentNode.id;
@@ -343,7 +316,6 @@ function leftEventHandler() {
     colPos--;
   }
 }
-//handler for logic of event
 
 document.addEventListener("keydown", function (event) {
   var key = event.key.toLowerCase();
@@ -365,10 +337,8 @@ document.addEventListener("keydown", function (event) {
     }
   }
 });
-// event listeners which calls others events and actually moves the character
 
-function moveFromButton(event) {
-  //Called by buttons visible only when screen width < 800px
+function moveFromButton(event) { //Called by buttons visible only when screen width < 800px
   var element = event.target;
   if (element.nodeName === "BUTTON") {
     switch (element.id) {
@@ -387,7 +357,6 @@ function moveFromButton(event) {
     }
   }
 }
-// allows movement by clicking buttons
 
 function characterHitWall() {
   iconImage.setAttribute("class", "character-icon uk-animation-shake");
@@ -399,7 +368,6 @@ function characterHitWall() {
     iconImage
   );
 }
-// calls a response for when character hits a wall
 
 var modal = document.getElementById("highModal");
 var span = document.getElementsByClassName("close")[0];
@@ -408,7 +376,6 @@ var timeH2 = document.getElementById("finished-time-display");
 function getHighscoresFromLocalStorage() {
   return JSON.parse(localStorage.getItem("highScores")) || [];
 }
-// function for retrieving items saved in local storage
 
 function displayForm() {
   var allHighScores = getHighscoresFromLocalStorage();
@@ -431,12 +398,10 @@ function displayForm() {
     document.location = "highScore.html";
   });
 }
-// function for modal, as well as pushing the user input and final score to the array in local storage
 
 function saveHighScores(arr) {
   localStorage.setItem("highScores", JSON.stringify(arr));
 }
-// saves highscores to local storage
 
 callCharacter();
 placeCharacter();

@@ -11,45 +11,27 @@
     />
 
     <title>MazeRunner</title>
-  </head>
+</head>
+<body>
   <header>
     <h1>The Maze Runner</h1>
   </header>
-  <body>
-    
-    <!-- insert modal for the instructions -->
-    <div class="big-container">
-      <nav>
-        <button id="modal-button">Instructions</button>
-
-        <div id="instructionModal" class="modal">
+  <div class="big-container">
+    <nav>
+        <button id="modal-button" class="customBtn">Instructions</button>
+  
+        <div id="instructionModal" class="modal">  
           <div class="modal-content">
             <span class="close">&times;</span>
-            <!-- how to guide through the random mazes -->
-            <p>
-              After selecting an animal and clicking the start button, you will start at the top
-              left corner of a maze and have to make your way down to the bottom
-              right corner of the maze. After you complete a maze, your
-              character will be loaded into a new maze. This procress will
-              repeated until you have completed all mazes. See how fast you can
-              finish!
-            </p>
-            <p>This game uses WASD key controls meaning:</p>
-            <ul id="modal-list">
-              <li>Press the <b>W</b> key to move up</li>
-              <li>Press the <b>A</b> key to move left</li>
-              <li>Press the <b>S</b> key to move down</li>
-              <li>Press the <b>D</b> key to move right</li>
-            </ul>
-            <p>
-              If your screen is small enough, directional buttons will be
-              displayed to move your character.
-            </p>
+              <p>
+                Complete all three mazes as quickly as possible!
+              </p>
+            <p class="largeInp">This game uses WASD key controls</p>
+          <p class="smallInp">Directional buttons will be displayed to move your character.</p>
           </div>
         </div>
-        
-        <!-- highscore button to get user to highscore page -->
-        <button id="highScore-button">Highscores</button>
+  
+        <button id="highScore-button" class="customBtn">Highscores</button>
 
         <div id="highScoreModal" class="modal">
           <div class="modal-content">
@@ -61,41 +43,14 @@
           </div>
         </div>
       </nav>
-
-      <section>
-        <!-- header of the page -->
         <h2 id="indexHeader">Welcome to the Maze Runner!</h2>
-        <div class="container">
-          <p>
-            <strong
-              >View the Instructions tab before getting started. Then select
-              which animal you would like to play as. Once ready, click the
-              Start button at own risk! Goodluck!</strong
-            >
-          </p>
-        </div>
-
-        <div id="select-container">
-          <label for="animal">Pick an animal:</label>
-          <select onchange="saveAnimal()" name="animal" id="animal">
-            <option disabled selected value> -- select an option -- </option>
-            <option value="bear">Bear</option>
-            <option value="tiger">Tiger</option>
-            <option value="wolf">Wolf</option>
-            <option value="frog">Frog</option>
-            <option value="goat">Goat</option>
-          </select>
-        </div>
-      </section>
-
-      <!-- start button -->
-      <button id="start-button" href="startBtn">Start!</button>
-      <div id="start-button-box"></div>
-      <!-- giphy api -->
-
-      <div class="mainContainer">
-        <img src="" alt="maze giphy" id="mazeGif" />
-      </div>
+            <p class="intro">
+                <strong>View the Instructions tab before getting started. Once ready, click the Start button at own risk!
+                Goodluck!</strong>
+             </p>
+     <button id="start-button" href="startBtn">Start!</button>
+     <div class="gifContainer">
+      <img src="https://media1.giphy.com/media/XBpUGMmoGM4DVHoRMZ/giphy.gif?cid=790b7611b2db5e9e271ee32f1c7c0fd048186001c55c186b&rid=giphy.gif&ct=g"></img>
     </div>
 
     <script src="./assets/javascript/landingPage.js"></script>
