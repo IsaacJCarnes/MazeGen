@@ -21,8 +21,9 @@ body {
   font-size: 20px;
   width: 100%;
   height: 20vh;
+  border-bottom: 2px solid black;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   background-image: linear-gradient(rgb(249, 252, 247), rgb(1, 12, 1));
 }
 .main-container {
@@ -44,7 +45,7 @@ body {
 }
 
 .spotlight {
-  max-width: 10%;
+  max-width: 7vw;
   margin: 0vh 1vw;
 }
 

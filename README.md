@@ -143,7 +143,7 @@ APIs:
 
 - Click here to access the deployed link: [Webpage](https://isaacjcarnes.github.io/MazeGen/)
 
-![Landing Page for Maze Runner](./assets/images/final-screenshot.png)
+![Landing Page for Maze Runner](./assets/images/homepage.png)
 
 ## Contributors
 
